@@ -5,6 +5,22 @@ This is a personal project with the objective of developing a custom implementat
 Inputs
 ------
 I will be using the KITTI Odometry dataset. The ground truth poses will be used to compute absolute scale (seeing as I don't have access to actual speedometer readings :P).
+I will be considering the folder structure to be similar to the KITTI_VO dataset. So if you want to use the code for yourself, you just need to change the base path as long as the internal folder structure is the same.
+
+```
+Path to folder
++-- KITTI_VO/
+|   +-- poses/
+|		+-- ground truth .txt files starting with 00.txt
+|   +-- sequences/
+|		+-- Sequence ID based folders (00/)
+|			+-- image_2/
+|				+-- video frames in .png format, starting with 000000.png
+|			+-- image_3/
+|				+-- video frames in .png format, starting with 000000.png
+|			+-- calib.txt
+|			+-- times.txt
+```
 
 Todo (08/26/2018)
 -----------------

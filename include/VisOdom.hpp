@@ -16,7 +16,7 @@
 #include <sstream>
 #include <fstream>
 #include <string>
-
+#include <Eigen/Dense>
 
 class VisOdom
 {

@@ -18,7 +18,7 @@ void VisOdom::featureTracking(cv::Mat img_1, cv::Mat img_2, std::vector<cv::Poin
 {
 	std::vector<float> err;
 
-	cv::calcOpticalFlowPyrLK(img_1, img_2, points1, points2, status, err, winSize, 3, termcrit, 0, 0.001);
+	cv::calcOpticalFlowPyrLK(img_1, img_2, points1, points2, status, err, winSize, 3, termcriteria, 0, 0.001);
 
 	int idxCorrect = 0;
 
@@ -58,7 +58,7 @@ double VisOdom::getAbsoluteScale(int frame_id, int sequence_id)
 
 	char filenamePoses[200];
 
-	std::sprintf(filenamePoses, "/home/yashmanian/Datasets/poses/%02d.txt",sequence_id);
+	std::sprintf(filenamePoses, "/home/yashmanian/KITTI_VO/Datasets/poses/%02d.txt",sequence_id);
 	std::ifstream poseFile(filenamePoses);
 
 	if(poseFile.is_open())

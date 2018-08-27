@@ -4,6 +4,9 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 
 project(MonocularVO)
 find_package( OpenCV REQUIRED )
+find_package( Eigen3 REQUIRED NO_MODULE )
+
 include_directories(include)
 add_executable(vo src/main.cc src/VisOdom.cc include/VisOdom.hpp)
-target_link_libraries( vo ${OpenCV_LIBS} )
+
+target_link_libraries( vo ${OpenCV_LIBS} Eigen3::Eigen)

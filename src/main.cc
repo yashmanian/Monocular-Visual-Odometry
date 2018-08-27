@@ -11,8 +11,8 @@ int main()
 	VisOdom VO;
 	double scale = 1.00;
 	char filename1[200], filename2[200];
-	sprintf(filename1, "/home/yashmanian/Datasets/sequences/00/image_2/%06d.png",0);
-	sprintf(filename2, "/home/yashmanian/Datasets/sequences/00/image_2/%06d.png",1);
+	sprintf(filename1, "/home/yashmanian/Datasets/KITTI_VO/sequences/00/image_2/%06d.png",0);
+	sprintf(filename2, "/home/yashmanian/Datasets/KITTI_VO/sequences/00/image_2/%06d.png",1);
 	
 	img_1_c = imread(filename1);
 	img_2_c = imread(filename2);
