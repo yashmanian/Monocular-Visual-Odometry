@@ -22,11 +22,10 @@ Path to folder
 |			+-- times.txt
 ```
 
-Todo (08/26/2018)
+Todo (08/27/2018)
 -----------------
-1. Add implementation to automate reading camera parameters from the dataset.
-2. Replace 'estimateEssentialMatrix()' with 'findFundamentalMatrix()' + custom Essential Matrix computation.
-3. Add Eigen based functionality
+1. Replace 'estimateEssentialMatrix()' with 'findFundamentalMatrix()' + custom Essential Matrix computation.
+2. Move Window generation to class and add destructor to close windows after end of execution.
 
 
 Example code on how to use the library will be updated in the cpp file src/main.cc. 
