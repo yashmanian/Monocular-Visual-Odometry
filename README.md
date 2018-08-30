@@ -22,7 +22,7 @@ Path to folder
 |			+-- times.txt
 ```
 
-Todo (08/28/2018)
+Todo (08/30/2018)
 -----------------
 1. Write RANSAC implementation for refining points from FeatTrack.
 2. Move Window generation to class and add destructor to close windows after end of execution.
