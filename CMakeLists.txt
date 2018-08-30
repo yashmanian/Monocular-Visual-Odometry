@@ -7,6 +7,6 @@ find_package( OpenCV REQUIRED )
 find_package( Eigen3 REQUIRED NO_MODULE )
 
 include_directories(include)
-add_executable(vo src/main.cc src/VisOdom.cc include/VisOdom.hpp)
+add_executable(vo src/main.cc src/FeatTrack.cc include/FeatTrack.hpp include/epipolar.hpp src/epipolar.cc)
 
 target_link_libraries( vo ${OpenCV_LIBS} Eigen3::Eigen)
