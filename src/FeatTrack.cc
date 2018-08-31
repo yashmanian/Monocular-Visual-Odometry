@@ -46,8 +46,31 @@ void FeatTrack::featureDetection(cv::Mat img_1, std::vector<cv::Point2f> &img_po
 	cv::KeyPoint::convert(keypoints_1, img_points, std::vector<int>());
 }
 
-// Get Homography
-//void FeatTrack::homographyRANSAC(std::vector<cv::Point2f> &img_1_points, std::vector<cv::Point2f> &img_2_points)
-//{
-//
-//}
+
+// Compute Homography
+void FeatTrack::computeHomography(std::vector<cv::Point2f> &x1, std::vector<cv::Point2f> &x2, cv::Mat &H)
+{
+	cv::Mat X = cv::Mat::zeros(x1.size()*2, 9, CV_64F);  // [8x9]
+	cv::Mat U, W, Vt, Z, Xa, Xb;    // SVD Matrices
+	size_t len = 0;
+
+	for(size_t i = 0; i < x1.size() ; ++i)
+	{
+		Xa = (cv::Mat_<double>(1,9) << -x1[i].x, -x1[i].y, -1, 0, 0, 0, x1[i].x*x2[i].x, x1[i].y*x2[i].x, x2[i].x);
+		Xb = (cv::Mat_<double>(1,9) << 0, 0, 0, -x1[i].x, -x1[i].y, -1, x1[i].x*x2[i].y, x1[i].y*x2[i].y, x2[i].y);
+		Xa.copyTo(X.row(len));
+		Xb.copyTo(X.row(len+1));
+		len += 2;
+	}
+
+	// Compute SVD of A
+	cv::SVD::compute(X, W, U, Vt, cv::SVD::FULL_UV);
+	Z = Vt.row(8);  // [1x9]
+	H = Z.reshape(0, 3);
+}
+
+// Run RANSAC on Homography
+void FeatTrack::homographyRANSAC(std::vector<cv::Point2f> &img_1_points, std::vector<cv::Point2f> &img_2_points)
+{
+
+}

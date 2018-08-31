@@ -32,7 +32,8 @@ public:
 	FeatTrack();
 	void featureTracking(cv::Mat img_1, cv::Mat img_2, std::vector<cv::Point2f> &img_1_points, std::vector<cv::Point2f> &img_2_points, std::vector<uchar> &status);
 	void featureDetection(cv::Mat img_1, std::vector<cv::Point2f> &img_points);
-	//void homographyRANSAC(std::vector<cv::Point2f> &img_1_points, std::vector<cv::Point2f> &img_2_points);
+	void computeHomography(std::vector<cv::Point2f> &x1, std::vector<cv::Point2f> &x2, cv::Mat &H);
+	void homographyRANSAC(std::vector<cv::Point2f> &img_1_points, std::vector<cv::Point2f> &img_2_points);
 };
 
 #endif

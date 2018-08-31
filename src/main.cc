@@ -24,6 +24,23 @@ int main()
 	sprintf(filename_gt, "/home/yashmanian/Datasets/KITTI_VO/poses/%02d.txt",sequence_id);
 	sprintf(filename_calib, "/home/yashmanian/Datasets/KITTI_VO/sequences/%02d/calib.txt", sequence_id);
 
+	vector<vector<float>> x1 = {{0, 0}, {1,0}, {1,1}, {0,1}};
+	vector<vector<float>> x2 = {{0, 0}, {3,2}, {3,5}, {0,3}};
+	vector<Point2f> set1, set2;
+
+	for (size_t i = 0; i<4; i++)
+	{
+		Point2f m = Point2f(x1[i][0], x1[i][1]);
+		Point2f n = Point2f(x2[i][0], x2[i][1]);
+
+		set1.push_back(m);
+		set2.push_back(n);
+	}
+
+	Mat H = Mat::zeros(3,3, CV_64F);;
+	Features.computeHomography(set1, set2, H);
+	cout << H << endl;
+
 	/*-----------------------Read Parameters-----------------------*/
 	img_1_c = imread(filename_img_1);
 	img_2_c = imread(filename_img_2);

@@ -33,7 +33,7 @@ Example code on how to use the library will be updated in the cpp file src/main.
 
 ## How to build and run the demo
 * To build and run demo:
-Update path to dataet in main.cc.
+Update path to dataset in main.cc.
 ```
 mkdir build
 cd build
