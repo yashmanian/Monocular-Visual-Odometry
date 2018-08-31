@@ -22,7 +22,7 @@ Path to folder
 |			+-- times.txt
 ```
 
-Todo (08/30/2018)
+Todo (08/31/2018)
 -----------------
 1. Write RANSAC implementation for fundamental matrix.
 2. Optimize RANSAC on homographyRANSAC
@@ -43,9 +43,13 @@ make
 
 ```
 To use these functions in your own code. Add the include directory path to the compiler debugging. Include to the start of your code and call the functions:
-* To use:
+* To use the feature tracking and refinement library:
 ```
-#include "VisOdom.hpp" 
+#include "FeatTrack.hpp" 
+```
+* To use the egomotion estimation library:
+```
+#include "epipolar.hpp" 
 ```
 
 ## License
