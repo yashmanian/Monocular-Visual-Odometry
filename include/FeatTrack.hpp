@@ -13,6 +13,7 @@
 // Includes
 #include <iostream>
 #include <ctype.h>
+#include <math.h>
 #include <vector>
 #include <ctime>
 #include <sstream>
@@ -27,6 +28,7 @@ private:
 	int fast_thresh;
 	bool nonMaxSuppression;
 	cv::Mat H  = cv::Mat::eye(3,3, CV_64F);
+	int MaxIter, threshHomography;
 
 public:
 	FeatTrack();

@@ -8,6 +8,8 @@ FeatTrack::FeatTrack()
 	termcriteria = cv::TermCriteria(cv::TermCriteria::COUNT+cv::TermCriteria::EPS, 30, 0.01);
 	fast_thresh = 20;
 	nonMaxSuppression = true;
+	MaxIter = 1000;
+	threshHomography = 10;
 }
 
 
@@ -50,9 +52,9 @@ void FeatTrack::featureDetection(cv::Mat img_1, std::vector<cv::Point2f> &img_po
 // Compute Homography
 void FeatTrack::computeHomography(std::vector<cv::Point2f> &x1, std::vector<cv::Point2f> &x2, cv::Mat &H)
 {
-	cv::Mat X = cv::Mat::zeros(x1.size()*2, 9, CV_64F);  // [8x9]
+	cv::Mat X = cv::Mat::zeros(int(x1.size())*2, 9, CV_64F);  // [8x9]
 	cv::Mat U, W, Vt, Z, Xa, Xb;    // SVD Matrices
-	size_t len = 0;
+	int len = 0;
 
 	for(size_t i = 0; i < x1.size() ; ++i)
 	{
@@ -69,8 +71,62 @@ void FeatTrack::computeHomography(std::vector<cv::Point2f> &x1, std::vector<cv::
 	H = Z.reshape(0, 3);
 }
 
-// Run RANSAC on Homography
+// Run RANSAC on Homography for image stitching (Not for VO!)
 void FeatTrack::homographyRANSAC(std::vector<cv::Point2f> &img_1_points, std::vector<cv::Point2f> &img_2_points)
 {
+	std::vector<int> randomIdx;
+	std::vector<cv::Point2f> rndSet1, rndSet2;
 
+	size_t size = img_1_points.size();
+	int randomKey = rand()%int(size);
+	cv::Mat H = cv::Mat::zeros(3, 3, CV_64F);
+	int inliers = 0, maxInliers = 0;
+
+	// RANSAC loop
+	for(size_t i = 0; i < this->MaxIter; i++)
+	{
+		// Select 4 random matched indices (change rand() to c++11 version later)
+		while(randomIdx.size() < 4)
+		{
+			while (std::find(randomIdx.begin(), randomIdx.end(), randomKey) != randomIdx.end())
+			{
+				randomKey = rand() % int(size);
+			}
+			randomIdx.push_back(randomKey);
+		}
+
+		// Form the homography pairs
+		for(size_t j = 0; j < randomIdx.size(); ++j)
+		{
+			rndSet1.emplace_back(cv::Point2f(img_1_points[randomIdx[j]].x, img_1_points[randomIdx[j]].y));
+			rndSet2.emplace_back(cv::Point2f(img_2_points[randomIdx[j]].x, img_2_points[randomIdx[j]].y));
+		}
+
+		this->computeHomography(rndSet1, rndSet2, H);
+
+		for(int j = 0; j < size; ++j)
+		{
+			cv::Mat homogenousVec1 = (cv::Mat_<double>(3,1) << img_1_points[j].x, img_1_points[j].y, 1);
+			homogenousVec1 = H*homogenousVec1;
+			homogenousVec1 /= homogenousVec1.at<double>(2,0);
+			cv::Mat homogenousVec2 = (cv::Mat_<double>(3,1) << img_2_points[j].x, img_2_points[j].y, 1);
+
+			cv::Mat threshFunc;
+			cv::pow((homogenousVec2 - homogenousVec1), 2, threshFunc);
+
+			if(sum(threshFunc).val[0] > threshHomography)
+			{
+				inliers++;
+			}
+			if(inliers > maxInliers)
+			{
+				maxInliers = inliers;
+			}
+
+			randomIdx.clear();
+			rndSet1.clear();
+			rndSet2.clear();
+		}
+
+	}
 }

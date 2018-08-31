@@ -24,9 +24,9 @@ Path to folder
 
 Todo (08/30/2018)
 -----------------
-1. Write RANSAC implementation for refining points from FeatTrack.
-2. Move Window generation to class and add destructor to close windows after end of execution.
-3. Write RANSAC implementation for fundamental matrix.
+1. Write RANSAC implementation for fundamental matrix.
+2. Optimize RANSAC on homographyRANSAC
+3. Move Window generation to class and add destructor to close windows after end of execution.
 
 Example code on how to use the library will be updated in the cpp file src/main.cc. 
 
