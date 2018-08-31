@@ -24,9 +24,10 @@ Path to folder
 
 Todo (08/31/2018)
 -----------------
-1. Write RANSAC implementation for fundamental matrix.
-2. Optimize RANSAC on homographyRANSAC
-3. Move Window generation to class and add destructor to close windows after end of execution.
+1. Test Fundamental Matrix accuracy.
+2. Write Pose Decomposition for Essential Matrix.
+3. Optimize RANSAC on homographyRANSAC.
+4. Move Window generation to class and add destructor to close windows after end of execution.
 
 Example code on how to use the library will be updated in the cpp file src/main.cc. 
 

@@ -29,11 +29,14 @@ private:
 	double fx, fy, skew, cx, cy;
 	cv::Point2d pp;
 	cv::Mat K = cv::Mat::zeros(3, 3, CV_64F);
+	int MaxIter;
 
 public:
 	epipolar();
 	cv::Mat getCameraParams(char filename_calib[200]);
 	double getAbsoluteScale(char filename_gt[200], int frame_id);
+	void estimateFundamentalMatrix(std::vector<cv::Point2f> &points1, std::vector<cv::Point2f> &points2, cv::Mat &F);
+	void fundamentalMatrixRANSAC(std::vector<cv::Point2f> &img_1_points, std::vector<cv::Point2f> &img_2_points, cv::Mat &F);
 };
 
 #endif

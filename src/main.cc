@@ -47,9 +47,38 @@ int main()
 	vector<uchar> status;
 	Features.featureTracking(img_1, img_2, points1, points2, status);	// Track features to second image
 
-	//Mat H = Mat::zeros(3, 3, CV_64F);
-	Features.homographyRANSAC(points1, points2);
 
+
+// Test Script
+////////////////////////////////////////////////////////////////////////////////////////////
+//	vector<int> randomIdx;
+//	vector<cv::Point2f> rndSet1, rndSet2;
+//
+//	size_t size = points1.size();
+//	int randomKey = rand()%int(size);
+	Mat F_t = Mat::zeros(3, 3, CV_64F);
+//
+//	// Select 8 random matched indices (change rand() to c++11 version later)
+//	while(randomIdx.size() < 8)
+//	{
+//		while (std::find(randomIdx.begin(), randomIdx.end(), randomKey) != randomIdx.end())
+//		{
+//			randomKey = rand() % int(size);
+//		}
+//		randomIdx.push_back(randomKey);
+//	}
+//
+//	for(size_t j = 0; j < randomIdx.size(); ++j)
+//	{
+//		rndSet1.emplace_back(cv::Point2f(points1[randomIdx[j]].x, points1[randomIdx[j]].y));
+//		rndSet2.emplace_back(cv::Point2f(points2[randomIdx[j]].x, points2[randomIdx[j]].y));
+//	}
+//
+//	epi.estimateFundamentalMatrix(rndSet1, rndSet2, F_t);
+
+	epi.fundamentalMatrixRANSAC(points1, points2, F_t);
+
+///////////////////////////////////////////////////////////////////////////////////////////
 
 	for(size_t i = 0; i < points1.size(); ++i) // Convert to range based later
 	{

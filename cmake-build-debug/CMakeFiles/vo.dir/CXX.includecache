@@ -68,9 +68,9 @@ fstream
 string
 -
 
-/home/yashmanian/CPP/MonocularVO/src/FeatTrack.cc
-FeatTrack.hpp
-/home/yashmanian/CPP/MonocularVO/src/FeatTrack.hpp
+/home/yashmanian/CPP/MonocularVO/src/epipolar.cc
+epipolar.hpp
+/home/yashmanian/CPP/MonocularVO/src/epipolar.hpp
 
 /home/yashmanian/CPP/MonocularVO/src/main.cc
 FeatTrack.hpp
