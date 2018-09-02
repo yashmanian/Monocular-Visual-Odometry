@@ -57,8 +57,8 @@ int main()
 //	size_t size = points1.size();
 //	int randomKey = rand()%int(size);
 	Mat F_t = Mat::zeros(3, 3, CV_64F);
-//
-//	// Select 8 random matched indices (change rand() to c++11 version later)
+
+	// Select 8 random matched indices (change rand() to c++11 version later)
 //	while(randomIdx.size() < 8)
 //	{
 //		while (std::find(randomIdx.begin(), randomIdx.end(), randomKey) != randomIdx.end())
@@ -77,6 +77,7 @@ int main()
 //	epi.estimateFundamentalMatrix(rndSet1, rndSet2, F_t);
 
 	epi.fundamentalMatrixRANSAC(points1, points2, F_t);
+	cout << F_t << endl;
 
 ///////////////////////////////////////////////////////////////////////////////////////////
 

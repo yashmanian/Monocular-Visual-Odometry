@@ -22,12 +22,12 @@ Path to folder
 |			+-- times.txt
 ```
 
-Todo (08/31/2018)
+Todo (09/2/2018)
 -----------------
-1. Test Fundamental Matrix accuracy.
-2. Write Pose Decomposition for Essential Matrix.
-3. Optimize RANSAC on homographyRANSAC.
-4. Move Window generation to class and add destructor to close windows after end of execution.
+1. Write and Test Pose Decomposition for Essential Matrix.
+2. Move Window generation to class and add destructor to close windows after end of execution.
+3. Add PCL support for RANSAC.
+
 
 Example code on how to use the library will be updated in the cpp file src/main.cc. 
 
