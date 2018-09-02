@@ -6,6 +6,38 @@
 
 #IncludeRegexTransform: 
 
+../include/FeatTrack.hpp
+Eigen/Dense
+-
+opencv2/core/eigen.hpp
+-
+opencv2/video/tracking.hpp
+../include/opencv2/video/tracking.hpp
+opencv2/imgproc/imgproc.hpp
+../include/opencv2/imgproc/imgproc.hpp
+opencv2/highgui/highgui.hpp
+../include/opencv2/highgui/highgui.hpp
+opencv2/features2d/features2d.hpp
+../include/opencv2/features2d/features2d.hpp
+opencv2/calib3d/calib3d.hpp
+../include/opencv2/calib3d/calib3d.hpp
+iostream
+-
+ctype.h
+-
+math.h
+-
+vector
+-
+ctime
+-
+sstream
+-
+fstream
+-
+string
+-
+
 ../include/epipolar.hpp
 Eigen/Dense
 -
@@ -36,9 +68,13 @@ fstream
 string
 -
 
-/home/yashmanian/CPP/MonocularVO/src/epipolar.cc
+/home/yashmanian/CPP/MonocularVO/src/main.cc
+FeatTrack.hpp
+/home/yashmanian/CPP/MonocularVO/src/FeatTrack.hpp
 epipolar.hpp
 /home/yashmanian/CPP/MonocularVO/src/epipolar.hpp
+ctime
+-
 
 /usr/local/include/eigen3/Eigen/Cholesky
 Core

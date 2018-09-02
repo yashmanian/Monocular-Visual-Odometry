@@ -1,5 +1,6 @@
 #include "FeatTrack.hpp"
 #include "epipolar.hpp"
+#include <ctime>
 
 using namespace std;
 using namespace cv;
@@ -24,6 +25,8 @@ int main()
 	sprintf(filename_gt, "/home/yashmanian/Datasets/KITTI_VO/poses/%02d.txt",sequence_id);
 	sprintf(filename_calib, "/home/yashmanian/Datasets/KITTI_VO/sequences/%02d/calib.txt", sequence_id);
 
+
+
 	/*-----------------------Read Parameters-----------------------*/
 	img_1_c = imread(filename_img_1);
 	img_2_c = imread(filename_img_2);
@@ -40,6 +43,7 @@ int main()
 	cvtColor(img_1_c, img_1, COLOR_BGR2GRAY);
 	cvtColor(img_2_c, img_2, COLOR_BGR2GRAY);
 
+
 	// Feature detection
 	vector<Point2f> points1, points2;	// Vector to store coordinates of features in pixels
 	Features.featureDetection(img_1, points1);
@@ -47,37 +51,18 @@ int main()
 	vector<uchar> status;
 	Features.featureTracking(img_1, img_2, points1, points2, status);	// Track features to second image
 
-
-
 // Test Script
 ////////////////////////////////////////////////////////////////////////////////////////////
-//	vector<int> randomIdx;
-//	vector<cv::Point2f> rndSet1, rndSet2;
-//
-//	size_t size = points1.size();
-//	int randomKey = rand()%int(size);
+	clock_t begin = clock();
 	Mat F_t = Mat::zeros(3, 3, CV_64F);
-
-	// Select 8 random matched indices (change rand() to c++11 version later)
-//	while(randomIdx.size() < 8)
-//	{
-//		while (std::find(randomIdx.begin(), randomIdx.end(), randomKey) != randomIdx.end())
-//		{
-//			randomKey = rand() % int(size);
-//		}
-//		randomIdx.push_back(randomKey);
-//	}
-//
-//	for(size_t j = 0; j < randomIdx.size(); ++j)
-//	{
-//		rndSet1.emplace_back(cv::Point2f(points1[randomIdx[j]].x, points1[randomIdx[j]].y));
-//		rndSet2.emplace_back(cv::Point2f(points2[randomIdx[j]].x, points2[randomIdx[j]].y));
-//	}
-//
-//	epi.estimateFundamentalMatrix(rndSet1, rndSet2, F_t);
+	Mat E_t = Mat::zeros(3, 3, CV_64F);
 
 	epi.fundamentalMatrixRANSAC(points1, points2, F_t);
-	cout << F_t << endl;
+	epi.estimateEssentialMatrix(F_t, E_t);
+
+	clock_t end = clock();
+	double elapsed_secs = double(end - begin) / CLOCKS_PER_SEC;
+	cout << "Total time taken: " << elapsed_secs << "s" << endl;
 
 ///////////////////////////////////////////////////////////////////////////////////////////
 

@@ -37,6 +37,7 @@ public:
 	double getAbsoluteScale(char filename_gt[200], int frame_id);
 	void estimateFundamentalMatrix(std::vector<cv::Point2f> &points1, std::vector<cv::Point2f> &points2, cv::Mat &F);
 	void fundamentalMatrixRANSAC(std::vector<cv::Point2f> &img_1_points, std::vector<cv::Point2f> &img_2_points, cv::Mat &F);
+	void estimateEssentialMatrix(cv::Mat &F, cv::Mat &E);
 };
 
 #endif

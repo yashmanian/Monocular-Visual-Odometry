@@ -271,3 +271,18 @@ void epipolar::fundamentalMatrixRANSAC(std::vector<cv::Point2f> &img_1_points, s
 	}
 
 }
+
+// Estimate Essential Matrix from Fundamental Matrix
+void epipolar::estimateEssentialMatrix(cv::Mat &F, cv::Mat &E)
+{
+	E = this->K.t() *F* this->K;
+
+	// Enforce rank 2 by making last singular value 0
+	cv::Mat U, W, Vt;
+	cv::SVD::compute(E, W, U, Vt);
+	cv::Mat W_diag = cv::Mat::eye(3, 3, CV_64F);
+	W_diag.at<double>(2,2) = 0;
+
+	E = U*W_diag*Vt;
+	std::cout << E << std::endl;
+}
