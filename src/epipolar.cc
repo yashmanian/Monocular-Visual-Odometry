@@ -187,7 +187,7 @@ void epipolar::estimateFundamentalMatrix(std::vector<cv::Point2f> &p1, std::vect
 	cv::Mat W_svd, U, Vt;
 	cv::Mat W_diag = cv::Mat::zeros(3,3, CV_64F);
 
-	cv::SVD::compute(F_t, W_svd, U, Vt);
+	cv::SVD::compute(F_t, W_svd, U, Vt, cv::SVD::FULL_UV);
 	W_svd.at<double>(2) = 0;
 	W_diag.at<double>(0,0) = W_svd.at<double>(0);
 	W_diag.at<double>(1,1) = W_svd.at<double>(1);
@@ -279,10 +279,52 @@ void epipolar::estimateEssentialMatrix(cv::Mat &F, cv::Mat &E)
 
 	// Enforce rank 2 by making last singular value 0
 	cv::Mat U, W, Vt;
-	cv::SVD::compute(E, W, U, Vt);
+	cv::SVD::compute(E, W, U, Vt, cv::SVD::FULL_UV);
 	cv::Mat W_diag = cv::Mat::eye(3, 3, CV_64F);
 	W_diag.at<double>(2,2) = 0;
 
 	E = U*W_diag*Vt;
-	std::cout << E << std::endl;
+}
+
+void epipolar::estimatePose(cv::Mat &E, cv::Mat &R, cv::Mat &t)
+{
+	cv::Mat U, D, Vt, R1, R2, C1r1, C1r2, C2r1, C2r2, P1, P2, P3, P4;
+	cv::SVD::compute(E, D, U, Vt, cv::SVD::FULL_UV);
+	cv::Mat W = cv::Mat::zeros(3, 3, CV_64F);
+	W.at<double>(0,1) = -1;
+	W.at<double>(1,0) = 1;
+	W.at<double>(2,2) = 1;
+
+	// Compute Possible Poses
+	U.col(2).copyTo(C1r1);
+	C1r2 = C1r1;
+	C2r1 = C1r1*-1;
+	C2r2 = C2r1;
+
+	R1 = U*W*Vt;
+	R2 = U*W.t()*Vt;
+
+	if(cv::determinant(R1) == -1)
+	{
+		R1 *= -1;
+		C1r1 *= -1;
+		C2r1 *= -1;
+	}
+	if(cv::determinant(R2) == -1)
+	{
+		R2 *= -1;
+		C1r2 *= -1;
+		C2r2 *= -1;
+	}
+
+	cv::hconcat(cv::Mat::eye(3, 3, CV_64F), C1r1, C1r1);
+	cv::hconcat(cv::Mat::eye(3, 3, CV_64F), C1r2, C1r2);
+	cv::hconcat(cv::Mat::eye(3, 3, CV_64F), C2r1, C2r1);
+	cv::hconcat(cv::Mat::eye(3, 3, CV_64F), C2r2, C2r2);
+	P1 = this->K * R1 * C1r1;
+	P2 = this->K * R1 * C2r1;
+	P3 = this->K * R2 * C1r2;
+	P4 = this->K * R2 * C2r2;
+
+	std::cout << P1 << std::endl;
 }

@@ -56,9 +56,11 @@ int main()
 	clock_t begin = clock();
 	Mat F_t = Mat::zeros(3, 3, CV_64F);
 	Mat E_t = Mat::zeros(3, 3, CV_64F);
+	Mat R, t;
 
 	epi.fundamentalMatrixRANSAC(points1, points2, F_t);
 	epi.estimateEssentialMatrix(F_t, E_t);
+	epi.estimatePose(E_t, R, t);
 
 	clock_t end = clock();
 	double elapsed_secs = double(end - begin) / CLOCKS_PER_SEC;

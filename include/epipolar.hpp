@@ -38,6 +38,7 @@ public:
 	void estimateFundamentalMatrix(std::vector<cv::Point2f> &points1, std::vector<cv::Point2f> &points2, cv::Mat &F);
 	void fundamentalMatrixRANSAC(std::vector<cv::Point2f> &img_1_points, std::vector<cv::Point2f> &img_2_points, cv::Mat &F);
 	void estimateEssentialMatrix(cv::Mat &F, cv::Mat &E);
+	void estimatePose(cv::Mat &E, cv::Mat &R, cv::Mat &t);
 };
 
 #endif

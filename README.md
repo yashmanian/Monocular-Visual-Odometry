@@ -2,6 +2,10 @@
 ## Overview
 This is a personal project with the objective of developing a custom implementation of Monocular Visual Odometry. As of now, existing opencv functions were used to estimate the fundamental matrix, essential matrix and pose recovery. However, over time, I hope to add my own implementations of calculating fundamental and essential matrices, along with Nister's 5 point algorithm, and cheirality checks. I hope to contribute to this library fairly regularly. I will also be generating Doxygen documentation eventually.
 
+Note
+----
+This library is just a straightforward implementation at the moment. I plan to optimize it further and even use it for basic SLAM, down the line.
+
 Inputs
 ------
 I will be using the KITTI Odometry dataset. The ground truth poses will be used to compute absolute scale (seeing as I don't have access to actual speedometer readings :P).
@@ -27,6 +31,7 @@ Todo (09/2/2018)
 1. Write and Test Pose Decomposition for Essential Matrix.
 2. Move Window generation to class and add destructor to close windows after end of execution.
 3. Add PCL support for RANSAC.
+4. Look into adding bundle adjustment
 
 
 Example code on how to use the library will be updated in the cpp file src/main.cc. 
