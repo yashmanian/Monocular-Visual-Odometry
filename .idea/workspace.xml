@@ -11,14 +11,7 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3c7110fe-4dda-4a71-b541-2544d08c7e73" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/vo.dir/src/epipolar.cc.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/include/epipolar.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/include/epipolar.hpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/epipolar.cc" beforeDir="false" afterPath="$PROJECT_DIR$/src/epipolar.cc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main.cc" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.cc" afterDir="false" />
-    </list>
+    <list default="true" id="3c7110fe-4dda-4a71-b541-2544d08c7e73" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -31,7 +24,7 @@
     <session id="-1786980248">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="8" />
+          <entry key="project.closed" value="9" />
           <entry key="project.open.time.0" value="1" />
           <entry key="project.open.time.4" value="1" />
           <entry key="project.open.time.5" value="4" />
@@ -99,7 +92,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
@@ -129,7 +122,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/include/epipolar.hpp">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="485">
@@ -175,10 +168,10 @@
         <option value="$PROJECT_DIR$/include/VisOdom.hpp" />
         <option value="$PROJECT_DIR$/include/FeatTrack.hpp" />
         <option value="$PROJECT_DIR$/src/FeatTrack.cc" />
-        <option value="$PROJECT_DIR$/include/epipolar.hpp" />
         <option value="$PROJECT_DIR$/src/main.cc" />
         <option value="$PROJECT_DIR$/src/epipolar.cc" />
         <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/include/epipolar.hpp" />
       </list>
     </option>
   </component>
@@ -272,12 +265,12 @@
       <workItem from="1535670470995" duration="10264000" />
       <workItem from="1535721866699" duration="19778000" />
       <workItem from="1535860027098" duration="20995000" />
-      <workItem from="1536011768647" duration="14356000" />
+      <workItem from="1536011768647" duration="14840000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="76606000" />
+    <option name="totallyTimeSpent" value="77090000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -290,21 +283,20 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="64" y="-11" width="1857" height="1092" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49717513" visible="true" weight="0.17412935" />
       <window_info id="Structure" order="1" sideWeight="0.50282484" side_tool="true" weight="0.17412935" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3294979" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.25941423" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.25941423" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.26359832" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.3294979" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Messages" order="8" weight="0.3294979" />
-      <window_info anchor="bottom" id="Terminal" order="9" weight="0.32776618" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="9" visible="true" weight="0.32740587" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="11" weight="0.3294979" />
       <window_info anchor="bottom" id="CMake" order="12" weight="0.3294979" />
@@ -397,34 +389,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main.cc">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="467">
-          <caret line="63" column="34" selection-start-line="63" selection-start-column="34" selection-end-line="63" selection-end-column="34" />
-          <folding>
-            <element signature="e#0#24#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/include/epipolar.hpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="485">
-          <caret line="41" column="83" lean-forward="true" selection-start-line="41" selection-start-column="83" selection-end-line="41" selection-end-column="83" />
-          <folding>
-            <element signature="e#58#80#0" expanded="true" />
-            <element signature="e#328#347#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/epipolar.cc">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6897">
-          <caret line="363" column="22" selection-start-line="363" selection-start-column="22" selection-end-line="363" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
@@ -437,6 +401,34 @@
       <provider editor-type-id="text-editor">
         <state relative-caret-position="494">
           <caret line="26" column="107" lean-forward="true" selection-start-line="26" selection-start-column="107" selection-end-line="26" selection-end-column="107" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main.cc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="467">
+          <caret line="63" column="34" selection-start-line="63" selection-start-column="34" selection-end-line="63" selection-end-column="34" />
+          <folding>
+            <element signature="e#0#24#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/epipolar.cc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="6897">
+          <caret line="363" column="22" selection-start-line="363" selection-start-column="22" selection-end-line="363" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/include/epipolar.hpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="485">
+          <caret line="41" column="83" lean-forward="true" selection-start-line="41" selection-start-column="83" selection-end-line="41" selection-end-column="83" />
+          <folding>
+            <element signature="e#58#80#0" expanded="true" />
+            <element signature="e#328#347#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

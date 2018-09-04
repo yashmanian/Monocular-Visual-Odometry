@@ -1,6 +1,6 @@
 # Monocular Visual Odometry
 ## Overview
-This is a personal project with the objective of developing a custom implementation of Monocular Visual Odometry. As of now, existing opencv functions were used to estimate the fundamental matrix, essential matrix and pose recovery. However, over time, I hope to add my own implementations of calculating fundamental and essential matrices, along with Nister's 5 point algorithm, and cheirality checks. I hope to contribute to this library fairly regularly. I will also be generating Doxygen documentation eventually.
+This is a personal project with the objective of developing a custom implementation of Monocular Visual Odometry. I hope to contribute to this library fairly regularly. I will also be generating Doxygen documentation eventually.
 
 Note
 ----
