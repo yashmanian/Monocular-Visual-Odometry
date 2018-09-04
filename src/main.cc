@@ -60,7 +60,8 @@ int main()
 
 	epi.fundamentalMatrixRANSAC(points1, points2, F_t);
 	epi.estimateEssentialMatrix(F_t, E_t);
-	epi.estimatePose(E_t, R, t);
+	epi.estimatePose(E_t, R, t, points1, points2);
+	cout << R << endl << t << endl;
 
 	clock_t end = clock();
 	double elapsed_secs = double(end - begin) / CLOCKS_PER_SEC;

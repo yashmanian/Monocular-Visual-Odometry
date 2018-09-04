@@ -286,7 +286,7 @@ void epipolar::estimateEssentialMatrix(cv::Mat &F, cv::Mat &E)
 	E = U*W_diag*Vt;
 }
 
-void epipolar::estimatePose(cv::Mat &E, cv::Mat &R, cv::Mat &t)
+void epipolar::estimatePose(cv::Mat &E, cv::Mat &R, cv::Mat &t, std::vector<cv::Point2f> &p1, std::vector<cv::Point2f> &p2)
 {
 	cv::Mat U, D, Vt, R1, R2, C1r1, C1r2, C2r1, C2r2, P1, P2, P3, P4;
 	cv::SVD::compute(E, D, U, Vt, cv::SVD::FULL_UV);
@@ -294,6 +294,15 @@ void epipolar::estimatePose(cv::Mat &E, cv::Mat &R, cv::Mat &t)
 	W.at<double>(0,1) = -1;
 	W.at<double>(1,0) = 1;
 	W.at<double>(2,2) = 1;
+
+	cv::Mat x1 = cv::Mat::zeros(3, 1, CV_64F);
+	cv::Mat x2 = cv::Mat::zeros(3, 1, CV_64F);
+	x1.at<double>(0) = p1[0].x;
+	x1.at<double>(1) = p1[0].y;
+	x1.at<double>(2) = 1;
+	x2.at<double>(0) = p2[0].x;
+	x2.at<double>(1) = p2[0].y;
+	x2.at<double>(2) = 1;
 
 	// Compute Possible Poses
 	U.col(2).copyTo(C1r1);
@@ -317,14 +326,152 @@ void epipolar::estimatePose(cv::Mat &E, cv::Mat &R, cv::Mat &t)
 		C2r2 *= -1;
 	}
 
-	cv::hconcat(cv::Mat::eye(3, 3, CV_64F), C1r1, C1r1);
-	cv::hconcat(cv::Mat::eye(3, 3, CV_64F), C1r2, C1r2);
-	cv::hconcat(cv::Mat::eye(3, 3, CV_64F), C2r1, C2r1);
-	cv::hconcat(cv::Mat::eye(3, 3, CV_64F), C2r2, C2r2);
+	cv::hconcat(cv::Mat::eye(3, 3, CV_64F), -1*C1r1, C1r1);
+	cv::hconcat(cv::Mat::eye(3, 3, CV_64F), -1*C1r2, C1r2);
+	cv::hconcat(cv::Mat::eye(3, 3, CV_64F), -1*C2r1, C2r1);
+	cv::hconcat(cv::Mat::eye(3, 3, CV_64F), -1*C2r2, C2r2);
 	P1 = this->K * R1 * C1r1;
 	P2 = this->K * R1 * C2r1;
 	P3 = this->K * R2 * C1r2;
 	P4 = this->K * R2 * C2r2;
 
-	std::cout << P1 << std::endl;
+	std::vector<cv::Mat> PXcam;
+	PXcam.push_back(P1);
+	PXcam.push_back(P2);
+	PXcam.push_back(P3);
+	PXcam.push_back(P4);
+
+	int pose = this->cheiralityCheckedPose(PXcam, x1, x2);
+
+	if(pose == 1)
+	{
+		R = R1;
+		t = C1r1.col(3);
+	}
+	if(pose == 2)
+	{
+		R = R1;
+		t = C2r1.col(3);
+	}
+	if(pose == 3)
+	{
+		R = R2;
+		t = C1r2.col(3);
+	}
+	if(pose == 4)
+	{
+		R = R2;
+		t = C2r2.col(3);
+	}
+
+}
+
+int epipolar::cheiralityCheckedPose(std::vector<cv::Mat> &PXcam, cv::Mat &x1, cv::Mat &x2)
+{
+	cv::Mat Pcam = (cv::Mat_<double>(3,4) << 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0);
+	cv::Mat P = this->K*Pcam;
+	cv::Mat x1hat = this->K.inv()*x1;
+	cv::Mat x2hat, A1, A2, A3, A4, U, W, Vt, V, xi;
+	cv::Mat A = cv::Mat::zeros(4, 4, CV_64F);
+	cv::Mat P_t = (cv::Mat_<double>(3,3) << 1, 0, 0, 0, 1, 0, 0, 0, 1);
+	cv::Mat PX_t = cv::Mat::zeros(3, 3, CV_64F);
+	double A1n, A2n, A3n, A4n, Z, T, m, sign;
+	int pose;
+
+	// For each pose, re-project point in 3D and find depth
+	cv::Mat X3D = cv::Mat::zeros(4, 4, CV_64F);
+	cv::Mat depth = cv::Mat::zeros(4, 2, CV_64F);
+
+	for(int i = 0; i < 4; ++i)
+	{
+		x2hat = this->K.inv()*x2;
+		// Build A matrix
+		A1 = Pcam.row(2)*x1hat.at<double>(0) - Pcam.row(0);
+		A2 = Pcam.row(2)*x1hat.at<double>(1) - Pcam.row(1);
+		A3 = PXcam[i].row(2)*x2hat.at<double>(0) - PXcam[i].row(0);
+		A4 = PXcam[i].row(2)*x2hat.at<double>(1) - PXcam[i].row(1);
+
+		// Normalize A
+		A1n = sqrt(cv::sum(A1)[0]*cv::sum(A1)[0]);
+		A2n = sqrt(cv::sum(A2)[0]*cv::sum(A2)[0]);
+		A3n = sqrt(cv::sum(A3)[0]*cv::sum(A3)[0]);
+		A4n = sqrt(cv::sum(A4)[0]*cv::sum(A4)[0]);
+
+		A1 /= A1n;
+		A2 /= A2n;
+		A3 /= A3n;
+		A4 /= A4n;
+
+		A1.copyTo(A.row(0));
+		A2.copyTo(A.row(1));
+		A3.copyTo(A.row(2));
+		A4.copyTo(A.row(3));
+
+		// Obtain 3D point
+		cv::SVD::compute(A, W, U, Vt, cv::SVD::FULL_UV);
+		V = Vt.t();
+		X3D.at<double>(0,i) = V.at<double>(0,3);
+		X3D.at<double>(1,i) = V.at<double>(1,3);
+		X3D.at<double>(2,i) = V.at<double>(2,3);
+		X3D.at<double>(3,i) = V.at<double>(3,3);
+
+		// Get depth on second image (Replace with Rect)
+		PX_t.at<double>(0,0) = PXcam[i].at<double>(0,0);
+		PX_t.at<double>(0,1) = PXcam[i].at<double>(0,1);
+		PX_t.at<double>(0,2) = PXcam[i].at<double>(0,2);
+		PX_t.at<double>(1,0) = PXcam[i].at<double>(1,0);
+		PX_t.at<double>(1,1) = PXcam[i].at<double>(1,1);
+		PX_t.at<double>(1,2) = PXcam[i].at<double>(1,2);
+		PX_t.at<double>(2,0) = PXcam[i].at<double>(2,0);
+		PX_t.at<double>(2,1) = PXcam[i].at<double>(2,1);
+		PX_t.at<double>(2,2) = PXcam[i].at<double>(2,2);
+		if(cv::determinant(PX_t) < 0)
+		{
+			sign = -1;
+		}
+		else
+		{
+			sign = 1;
+		}
+
+		xi = PXcam[i]*X3D.col(i);
+		Z = xi.at<double>(2);
+		T = X3D.at<double>(3,i);
+		m = sqrt(cv::sum(PX_t)[0]*cv::sum(PX_t)[0]);
+		depth.at<double>(i, 0) = (sign*Z)/(T*m);
+
+		// Check depth on first camera
+		if(cv::determinant(P_t) < 0)
+		{
+			sign = -1;
+		}
+		else
+		{
+			sign = 1;
+		}
+
+		xi = Pcam*X3D.col(i);
+		Z = xi.at<double>(2);
+		T = X3D.at<double>(3,i);
+		m = sqrt(cv::sum(P_t)[0] * cv::sum(P_t)[0]);
+		depth.at<double>(i, 1) = (sign*Z)/(T*m);
+	}
+	if(depth.at<double>(0,0) > 0 && depth.at<double>(0,1))
+	{
+		pose = 1;
+	}
+	if(depth.at<double>(1,0) > 0 && depth.at<double>(1,1))
+	{
+		pose = 2;
+	}
+	if(depth.at<double>(2,0) > 0 && depth.at<double>(2,1))
+	{
+		pose = 3;
+	}
+	if(depth.at<double>(3,0) > 0 && depth.at<double>(3,1))
+	{
+		pose = 4;
+	}
+	//std::cout << pose << std::endl;
+	return pose;
 }

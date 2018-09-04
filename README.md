@@ -28,10 +28,10 @@ Path to folder
 
 Todo (09/2/2018)
 -----------------
-1. Write and Test Pose Decomposition for Essential Matrix.
+1. Test accuracy of Pose decomposition & optimize function
 2. Move Window generation to class and add destructor to close windows after end of execution.
 3. Add PCL support for RANSAC.
-4. Look into adding bundle adjustment
+4. Convert to Eigen (Painful but necessary)
 
 
 Example code on how to use the library will be updated in the cpp file src/main.cc. 
