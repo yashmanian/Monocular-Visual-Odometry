@@ -41,9 +41,7 @@ void \hyperlink{classepipolar_a7c50ca7a4431c5e08a848bed9dba878e}{estimate\+Funda
 void \hyperlink{classepipolar_a8530a3ec65e1915ee7df1c555c74014e}{Fundamental\+Mat\+R\+A\+N\+S\+AC} (Eigen\+::\+Matrix3d \&F, Eigen\+::\+Matrix\+Xd \&points1, Eigen\+::\+Matrix\+Xd \&points2)
 \begin{DoxyCompactList}\small\item\em Uses R\+A\+N\+S\+AC to refine the Fundamental matrix. This takes advantage of the fact that the features lie on the epipolar plane. \end{DoxyCompactList}\item 
 Eigen\+::\+Matrix\+Xd \hyperlink{classepipolar_ad5ce6ee9ac5df7f8f02e4c48686cc637}{compute\+Epipole} (Eigen\+::\+Matrix3d \&F)
-\begin{DoxyCompactList}\small\item\em Computes epipole based on the idea that the epipoles lie on the epipolar plane. So Linear Least Squares to solve e2\+T$\ast$\+F$\ast$e1 = 0. \end{DoxyCompactList}\item 
-void \hyperlink{classepipolar_a432430b23bb8a15d2ad9d9269b516839}{draw\+Epipolar\+Lines} (cv\+::\+Mat \&img1, cv\+::\+Mat \&img2, std\+::vector$<$ cv\+::\+Point2f $>$ \&points1, std\+::vector$<$ cv\+::\+Point2f $>$ \&points2, cv\+::\+Point2f \&epipole)
-\begin{DoxyCompactList}\small\item\em Draws epipolar lines on the images passed in. Takes in the matched points and the two images. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Computes epipole based on the idea that the epipoles lie on the epipolar plane. So Linear Least Squares to solve e2\+T$\ast$\+F$\ast$e1 = 0. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
@@ -77,22 +75,7 @@ Initializes the camera matrix to default values in the event of file reading fai
 
 Computes epipole based on the idea that the epipoles lie on the epipolar plane. So Linear Least Squares to solve e2\+T$\ast$\+F$\ast$e1 = 0. 
 
-Takes in the Fundamental matrix and returns a 3x2 matrix in homogenous form, with the coordinates for the epipole. \index{epipolar@{epipolar}!draw\+Epipolar\+Lines@{draw\+Epipolar\+Lines}}
-\index{draw\+Epipolar\+Lines@{draw\+Epipolar\+Lines}!epipolar@{epipolar}}
-\subsubsection[{\texorpdfstring{draw\+Epipolar\+Lines(cv\+::\+Mat \&img1, cv\+::\+Mat \&img2, std\+::vector$<$ cv\+::\+Point2f $>$ \&points1, std\+::vector$<$ cv\+::\+Point2f $>$ \&points2, cv\+::\+Point2f \&epipole)}{drawEpipolarLines(cv::Mat &img1, cv::Mat &img2, std::vector< cv::Point2f > &points1, std::vector< cv::Point2f > &points2, cv::Point2f &epipole)}}]{\setlength{\rightskip}{0pt plus 5cm}void epipolar\+::draw\+Epipolar\+Lines (
-\begin{DoxyParamCaption}
-\item[{cv\+::\+Mat \&}]{img1, }
-\item[{cv\+::\+Mat \&}]{img2, }
-\item[{std\+::vector$<$ cv\+::\+Point2f $>$ \&}]{points1, }
-\item[{std\+::vector$<$ cv\+::\+Point2f $>$ \&}]{points2, }
-\item[{cv\+::\+Point2f \&}]{epipole}
-\end{DoxyParamCaption}
-)}\hypertarget{classepipolar_a432430b23bb8a15d2ad9d9269b516839}{}\label{classepipolar_a432430b23bb8a15d2ad9d9269b516839}
-
-
-Draws epipolar lines on the images passed in. Takes in the matched points and the two images. 
-
-Draws the lines between the epipole and the features. \index{epipolar@{epipolar}!estimate\+Fundamental\+Matrix@{estimate\+Fundamental\+Matrix}}
+Takes in the Fundamental matrix and returns a 3x2 matrix in homogenous form, with the coordinates for the epipole. \index{epipolar@{epipolar}!estimate\+Fundamental\+Matrix@{estimate\+Fundamental\+Matrix}}
 \index{estimate\+Fundamental\+Matrix@{estimate\+Fundamental\+Matrix}!epipolar@{epipolar}}
 \subsubsection[{\texorpdfstring{estimate\+Fundamental\+Matrix(\+Eigen\+::\+Matrix\+Xd \&points1, Eigen\+::\+Matrix\+Xd \&points2, Eigen\+::\+Matrix3d \&\+F)}{estimateFundamentalMatrix(Eigen::MatrixXd &points1, Eigen::MatrixXd &points2, Eigen::Matrix3d &F)}}]{\setlength{\rightskip}{0pt plus 5cm}void epipolar\+::estimate\+Fundamental\+Matrix (
 \begin{DoxyParamCaption}
@@ -129,7 +112,19 @@ Here is the call graph for this function\+:\nopagebreak
 
 Uses R\+A\+N\+S\+AC to refine the Fundamental matrix. This takes advantage of the fact that the features lie on the epipolar plane. 
 
-Uses x2\+T$\ast$\+F$\ast$x1 = 0 as a distance function for the R\+A\+N\+S\+AC. Once inliers are selected, a final fundamental matrix is computed using them. \index{epipolar@{epipolar}!get\+Absolute\+Scale@{get\+Absolute\+Scale}}
+Uses x2\+T$\ast$\+F$\ast$x1 = 0 as a distance function for the R\+A\+N\+S\+AC. Once inliers are selected, a final fundamental matrix is computed using them. 
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classepipolar_a8530a3ec65e1915ee7df1c555c74014e_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{epipolar@{epipolar}!get\+Absolute\+Scale@{get\+Absolute\+Scale}}
 \index{get\+Absolute\+Scale@{get\+Absolute\+Scale}!epipolar@{epipolar}}
 \subsubsection[{\texorpdfstring{get\+Absolute\+Scale(char filename\+\_\+gt[200], int frame\+\_\+id)}{getAbsoluteScale(char filename_gt[200], int frame_id)}}]{\setlength{\rightskip}{0pt plus 5cm}double epipolar\+::get\+Absolute\+Scale (
 \begin{DoxyParamCaption}

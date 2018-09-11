@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['normalise2dpts',['normalise2dpts',['../class_point_ops.html#aedd3f88c0e3eccd17085585cdd85319a',1,'PointOps']]]
+  ['pointops',['PointOps',['../class_point_ops.html',1,'']]],
+  ['pointops_2ecpp',['PointOps.cpp',['../_point_ops_8cpp.html',1,'']]],
+  ['pointops_2ehpp',['PointOps.hpp',['../_point_ops_8hpp.html',1,'']]]
 ];

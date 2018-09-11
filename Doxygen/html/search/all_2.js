@@ -1,8 +1,9 @@
 var searchData=
 [
-  ['epilines_2ecpp',['epiLines.cpp',['../epi_lines_8cpp.html',1,'']]],
-  ['epipolar',['epipolar',['../classepipolar.html',1,'epipolar'],['../classepipolar.html#af5946f7532025b261a04dac12e18946d',1,'epipolar::epipolar()']]],
-  ['epipolar_2ecpp',['epipolar.cpp',['../epipolar_8cpp.html',1,'']]],
-  ['epipolar_2ehpp',['epipolar.hpp',['../epipolar_8hpp.html',1,'']]],
-  ['estimatefundamentalmatrix',['estimateFundamentalMatrix',['../classepipolar.html#a7c50ca7a4431c5e08a848bed9dba878e',1,'epipolar']]]
+  ['feattrack',['FeatTrack',['../class_feat_track.html',1,'FeatTrack'],['../class_feat_track.html#a1155bdc5bde9a95519354144f9920beb',1,'FeatTrack::FeatTrack()']]],
+  ['feattrack_2ecpp',['FeatTrack.cpp',['../_feat_track_8cpp.html',1,'']]],
+  ['feattrack_2ehpp',['FeatTrack.hpp',['../_feat_track_8hpp.html',1,'']]],
+  ['featuredetection',['featureDetection',['../class_feat_track.html#ae0c07b941c44dd1bf32d866611561835',1,'FeatTrack']]],
+  ['featuretracking',['featureTracking',['../class_feat_track.html#ab1dd27505ee431ded0b68a32d959410b',1,'FeatTrack']]],
+  ['fundamentalmatransac',['FundamentalMatRANSAC',['../classepipolar.html#a8530a3ec65e1915ee7df1c555c74014e',1,'epipolar']]]
 ];

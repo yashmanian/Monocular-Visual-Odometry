@@ -33,7 +33,7 @@ epipolar::epipolar()
 	cx = 607.1928;
 	cy = 185.2157;
 	skew = 0;
-	MaxIter = 30;
+	MaxIter = 1000;
 	inlierThresh = 0.80;
 	RANSAC_THRESH = 0.005;
 }
@@ -322,6 +322,8 @@ void epipolar::FundamentalMatRANSAC(Eigen::Matrix3d &F, Eigen::MatrixXd &points1
 	this->FundamentalMatRANSAC(F, selectPts1, selectPts2);
 	cout << F << endl;
 }
+
+
 
 // Compute epipoles
 Eigen::MatrixXd epipolar::computeEpipole(Eigen::Matrix3d &F)

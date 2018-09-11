@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['getabsolutescale',['getAbsoluteScale',['../classepipolar.html#a7afbdbd2643ef41ca10bd7ad053f3762',1,'epipolar']]],
-  ['getcameraparams',['getCameraParams',['../classepipolar.html#a704a496c08556dac8133ec1b403e728c',1,'epipolar']]]
+  ['homographyransac',['homographyRANSAC',['../class_feat_track.html#abb6e503ee7c4eaed6c00d386d797f35a',1,'FeatTrack']]]
 ];

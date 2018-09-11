@@ -1,0 +1,4 @@
+<map id="epipolar::FundamentalMatRANSAC" name="epipolar::FundamentalMatRANSAC">
+<area shape="rect" id="node2" href="$classepipolar.html#a7c50ca7a4431c5e08a848bed9dba878e" title="Estimates fundamental matrix from matched points. Takes in the matrix F by reference which is updated..." alt="" coords="225,5,425,47"/>
+<area shape="rect" id="node3" href="$class_point_ops.html#aedd3f88c0e3eccd17085585cdd85319a" title="Normalises the point set around its centroid. " alt="" coords="473,13,645,39"/>
+</map>

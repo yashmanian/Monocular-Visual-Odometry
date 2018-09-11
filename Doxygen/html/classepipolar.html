@@ -133,9 +133,6 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ad5ce6ee9ac5df7f8f02e4c48686cc637"><td class="memItemLeft" align="right" valign="top">Eigen::MatrixXd&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classepipolar.html#ad5ce6ee9ac5df7f8f02e4c48686cc637">computeEpipole</a> (Eigen::Matrix3d &amp;F)</td></tr>
 <tr class="memdesc:ad5ce6ee9ac5df7f8f02e4c48686cc637"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes epipole based on the idea that the epipoles lie on the epipolar plane. So Linear Least Squares to solve e2T*F*e1 = 0.  <a href="#ad5ce6ee9ac5df7f8f02e4c48686cc637">More...</a><br /></td></tr>
 <tr class="separator:ad5ce6ee9ac5df7f8f02e4c48686cc637"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a432430b23bb8a15d2ad9d9269b516839"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classepipolar.html#a432430b23bb8a15d2ad9d9269b516839">drawEpipolarLines</a> (cv::Mat &amp;img1, cv::Mat &amp;img2, std::vector&lt; cv::Point2f &gt; &amp;points1, std::vector&lt; cv::Point2f &gt; &amp;points2, cv::Point2f &amp;epipole)</td></tr>
-<tr class="memdesc:a432430b23bb8a15d2ad9d9269b516839"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draws epipolar lines on the images passed in. Takes in the matched points and the two images.  <a href="#a432430b23bb8a15d2ad9d9269b516839">More...</a><br /></td></tr>
-<tr class="separator:a432430b23bb8a15d2ad9d9269b516839"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_point_ops"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_point_ops')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_point_ops.html">PointOps</a></td></tr>
 <tr class="memitem:aedd3f88c0e3eccd17085585cdd85319a inherit pub_methods_class_point_ops"><td class="memItemLeft" align="right" valign="top">Eigen::MatrixXd&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_point_ops.html#aedd3f88c0e3eccd17085585cdd85319a">normalise2dpts</a> (Eigen::MatrixXd &amp;pts)</td></tr>
 <tr class="memdesc:aedd3f88c0e3eccd17085585cdd85319a inherit pub_methods_class_point_ops"><td class="mdescLeft">&#160;</td><td class="mdescRight">Normalises the point set around its centroid.  <a href="#aedd3f88c0e3eccd17085585cdd85319a">More...</a><br /></td></tr>
@@ -183,53 +180,6 @@ Public Member Functions</h2></td></tr>
 
 <p>Computes epipole based on the idea that the epipoles lie on the epipolar plane. So Linear Least Squares to solve e2T*F*e1 = 0. </p>
 <p>Takes in the Fundamental matrix and returns a 3x2 matrix in homogenous form, with the coordinates for the epipole. </p>
-
-</div>
-</div>
-<a class="anchor" id="a432430b23bb8a15d2ad9d9269b516839"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void epipolar::drawEpipolarLines </td>
-          <td>(</td>
-          <td class="paramtype">cv::Mat &amp;&#160;</td>
-          <td class="paramname"><em>img1</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">cv::Mat &amp;&#160;</td>
-          <td class="paramname"><em>img2</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">std::vector&lt; cv::Point2f &gt; &amp;&#160;</td>
-          <td class="paramname"><em>points1</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">std::vector&lt; cv::Point2f &gt; &amp;&#160;</td>
-          <td class="paramname"><em>points2</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">cv::Point2f &amp;&#160;</td>
-          <td class="paramname"><em>epipole</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Draws epipolar lines on the images passed in. Takes in the matched points and the two images. </p>
-<p>Draws the lines between the epipole and the features. </p>
 
 </div>
 </div>
@@ -310,6 +260,17 @@ Here is the call graph for this function:</div>
 
 <p>Uses RANSAC to refine the Fundamental matrix. This takes advantage of the fact that the features lie on the epipolar plane. </p>
 <p>Uses x2T*F*x1 = 0 as a distance function for the RANSAC. Once inliers are selected, a final fundamental matrix is computed using them. </p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classepipolar_a8530a3ec65e1915ee7df1c555c74014e_cgraph.png" border="0" usemap="#classepipolar_a8530a3ec65e1915ee7df1c555c74014e_cgraph" alt=""/></div>
+<map name="classepipolar_a8530a3ec65e1915ee7df1c555c74014e_cgraph" id="classepipolar_a8530a3ec65e1915ee7df1c555c74014e_cgraph">
+<area shape="rect" id="node2" href="classepipolar.html#a7c50ca7a4431c5e08a848bed9dba878e" title="Estimates fundamental matrix from matched points. Takes in the matrix F by reference which is updated..." alt="" coords="225,5,425,47"/>
+<area shape="rect" id="node3" href="class_point_ops.html#aedd3f88c0e3eccd17085585cdd85319a" title="Normalises the point set around its centroid. " alt="" coords="473,13,645,39"/>
+</map>
+</div>
+</p>
 
 </div>
 </div>

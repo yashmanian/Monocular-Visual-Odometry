@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['homographyransac',['homographyRANSAC',['../class_feat_track.html#abb6e503ee7c4eaed6c00d386d797f35a',1,'FeatTrack']]]
+  ['normalise2dpts',['normalise2dpts',['../class_point_ops.html#aedd3f88c0e3eccd17085585cdd85319a',1,'PointOps']]]
 ];
