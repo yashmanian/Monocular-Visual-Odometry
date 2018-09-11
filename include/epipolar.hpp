@@ -59,7 +59,7 @@ private:
 	double fx, fy, skew, cx, cy;
 	Eigen::Matrix3d K;
 	int MaxIter;
-	double RANSAC_THRESH;
+	double RANSAC_THRESH, inlierThresh;
 
 public:
 
@@ -100,13 +100,6 @@ public:
  *@brief Takes in the Fundamental matrix and returns a 3x2 matrix in homogenous form, with the coordinates for the epipole.
  */
 	Eigen::MatrixXd computeEpipole(Eigen::Matrix3d &F);
-
-/**
- *@brief Draws epipolar lines on the images passed in. Takes in the matched points and the two images
- *@brief Draws the lines between the epipole and the features.
- */
-	void drawEpipolarLines(cv::Mat &img1, cv::Mat &img2, std::vector<cv::Point2f> &points1, std::vector<cv::Point2f> &points2, cv::Point2f &epipole);
-
 };
 
 #endif

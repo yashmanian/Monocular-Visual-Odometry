@@ -33,7 +33,8 @@ epipolar::epipolar()
 	cx = 607.1928;
 	cy = 185.2157;
 	skew = 0;
-	MaxIter = 1000;
+	MaxIter = 30;
+	inlierThresh = 0.80;
 	RANSAC_THRESH = 0.005;
 }
 
@@ -178,7 +179,8 @@ void epipolar::estimateFundamentalMatrix(Eigen::MatrixXd &points1, Eigen::Matrix
 	A << x2.array()*x1.array(), x2.array()*y1.array(), x2, y2.array()*x1.array(), y2.array()*y1.array(), y2, x1, y1, MatrixXd::Ones(npts,1);
 
 	// Run SVD and get last column
-	BDCSVD<MatrixXd> svd(A, ComputeThinU | ComputeThinV);
+	BDCSVD<MatrixXd> svd(A, ComputeFullU | ComputeFullV);
+
 	V = svd.matrixV().col(8);
 
 	// Reshape last column into Fundamental matrix
@@ -207,7 +209,118 @@ void epipolar::estimateFundamentalMatrix(Eigen::MatrixXd &points1, Eigen::Matrix
 // Refine Fundamental Matrix using RANSAC
 void epipolar::FundamentalMatRANSAC(Eigen::Matrix3d &F, Eigen::MatrixXd &points1, Eigen::MatrixXd &points2)
 {
+	using namespace std;
+	using namespace Eigen;
 
+	// Check for matrix dimension constraints
+	if(points1.cols() != points2.cols())
+	{
+		cout << "Number of matched features should be equal!" << endl;
+		return;
+	}
+
+	if(points1.rows() != 3)
+	{
+		if(points1.rows() == 2)
+		{
+			points1.conservativeResize(points1.rows() + 1, points1.cols());
+			points1.row(points1.rows()-1) = MatrixXd::Ones(points1.cols(),1);
+			points2.conservativeResize(points2.rows() + 1, points2.cols());
+			points2.row(points2.rows()-1) = MatrixXd::Ones(points2.cols(),1);
+		}
+		else
+		{
+			cout << "Matrix needs to be at least 2xN!" << endl;
+			return;
+		}
+	}
+
+	// Variable declaration
+	int size = points1.cols();
+	vector<int> randomIdx;
+	MatrixXd batch1(3, 8), batch2(3, 8), distFunc(size, size), dist(size, 1);
+	MatrixXd selectPts1 = points1, selectPts2 = points2;
+	Matrix3d F_t, bestF;
+	int randomKey = rand()%int(size);
+	int maxInliers = 0;
+
+	// RANSAC loop
+	for(int i = 0; i < this->MaxIter; ++i)
+	{
+
+		// Select 8 random matched indices (change rand() to c++11 version later)
+		while (randomIdx.size() < 8)
+		{
+			while (find(randomIdx.begin(), randomIdx.end(), randomKey) != randomIdx.end())
+			{
+				randomKey = rand() % int(size);
+			}
+			randomIdx.push_back(randomKey);
+		}
+
+		batch1 << points1.col(randomIdx[0]), points1.col(randomIdx[1]), points1.col(randomIdx[2]), points1.col(
+				randomIdx[3]), points1.col(randomIdx[4]), points1.col(randomIdx[5]), points1.col(
+				randomIdx[6]), points1.col(randomIdx[7]);
+		batch2 << points2.col(randomIdx[0]), points2.col(randomIdx[1]), points2.col(randomIdx[2]), points2.col(
+				randomIdx[3]), points2.col(randomIdx[4]), points2.col(randomIdx[5]), points2.col(
+				randomIdx[6]), points2.col(randomIdx[7]);
+
+		// Estimate fundamental matrix from batch of random points (fitting function)
+		this->estimateFundamentalMatrix(batch1, batch2, F_t);
+
+		// Exploit epipolar planar constraint as distance function
+		distFunc = points2.transpose() * F_t * points1;
+		dist = distFunc.diagonal();
+		int inliers = (dist.array() < RANSAC_THRESH).count();
+
+		// Compare current inliers to best estimate
+		if (inliers > maxInliers)
+		{
+			double inlierCount = double(inliers)/double(size);
+
+			// If a certain threshold of inliers is met
+			if(inlierCount >= inlierThresh)
+			{
+				maxInliers = inliers;
+				bestF = F_t;
+				break;
+			}
+
+			maxInliers = inliers;
+			bestF = F_t;
+
+			// Replace using libigl later to slice matrix
+			int inCount = 0;
+			for(int k = 0; k < size; k++)
+			{
+				double ny = dist(k);
+				if(dist(k) < RANSAC_THRESH)
+				{
+
+					if(inCount > selectPts1.cols())
+					{
+						selectPts1.conservativeResize(selectPts1.rows(), points1.cols() + 1);
+						selectPts2.conservativeResize(selectPts2.rows(), points2.cols() + 1);
+					}
+
+					selectPts1.col(inCount) = points1.col(k);
+					selectPts2.col(inCount) = points2.col(k);
+					inCount++;
+				}
+			}
+
+			if(inCount < selectPts1.cols())
+			{
+				selectPts1.conservativeResize(selectPts1.rows(), inCount - 1);
+			}
+
+		}
+	}
+
+	cout << selectPts1 << endl;
+	// Estimate final Fundamental matrix using selected points
+	this->FundamentalMatRANSAC(F, selectPts1, selectPts2);
+	cout << F << endl;
 }
 
 // Compute epipoles
@@ -228,14 +341,4 @@ Eigen::MatrixXd epipolar::computeEpipole(Eigen::Matrix3d &F)
 	return E;
 }
 
-
-// Draw epipolar lines
-void epipolar::drawEpipolarLines(cv::Mat &img1, cv::Mat &img2, std::vector<cv::Point2f> &points1, std::vector<cv::Point2f> &points2, cv::Point2f &epipole)
-{
-	for(size_t i = 0; i < points1.size(); i++)
-	{
-		cv::line(img1, cv::Point(epipole.x, epipole.y), cv::Point(points1[i].x, points1[i].y), cv::Scalar(255), 1, 8, 0);
-		cv::line(img2, cv::Point(epipole.x, epipole.y), cv::Point(points2[i].x, points2[i].y), cv::Scalar(255), 1, 8, 0);
-	}
-}
 

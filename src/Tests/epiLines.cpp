@@ -51,9 +51,8 @@ int main()
 	int thickness = 1;
 	cv::Point textOrg(10, 50);
 
-	sprintf(filename_imL, "/home/yashmanian/Datasets/stereo-pairs/cones/imL.png");
-	sprintf(filename_imR, "/home/yashmanian/Datasets/stereo-pairs/cones/imR.png");
-
+	sprintf(filename_imL, "/home/yashmanian/Datasets/KITTI_VO/sequences/%02d/image_2/%06d.png", sequence_id, 0);
+	sprintf(filename_imR, "/home/yashmanian/Datasets/KITTI_VO/sequences/%02d/image_2/%06d.png", sequence_id, 1);
 
 	/*-----------------------Test Script-----------------------*/
 ////////////////////////////////////////////////////////////////////////////////////////////
@@ -88,8 +87,12 @@ int main()
 	MatrixXd pts2 = epi.cv2EigenHomogenous(points2);
 	Matrix3d F, Fcv;
 	MatrixXd E1(3,2), E2(3,2);
+	Mat mask;
+	Mat F_t = findFundamentalMat(points1, points2, FM_RANSAC, 3, 0.99, mask);
 
+	vector<Vec3f> lines1, lines2;
 	epi.estimateFundamentalMatrix(pts1, pts2, F);
+
 	E1 =  epi.computeEpipole(F);
 	Mat F2 = Mat::zeros(3,3, CV_64F);
 	F2.at<double>(0,0) = F(0,0);
@@ -102,35 +105,21 @@ int main()
 	F2.at<double>(2,1) = F(2,1);
 	F2.at<double>(2,2) = F(2,2);
 
-	Mat mask;
-	Mat F_t = findFundamentalMat(points1, points2, FM_RANSAC, 3, 0.99, mask);
-	Fcv(0,0) = F_t.at<double>(0,0);
-	Fcv(0,1) = F_t.at<double>(0,1);
-	Fcv(0,2) = F_t.at<double>(0,2);
-	Fcv(1,0) = F_t.at<double>(1,0);
-	Fcv(1,1) = F_t.at<double>(1,1);
-	Fcv(1,2) = F_t.at<double>(1,2);
-	Fcv(2,0) = F_t.at<double>(2,0);
-	Fcv(2,1) = F_t.at<double>(2,1);
-	Fcv(2,2) = F_t.at<double>(2,2);
-	E2 =  epi.computeEpipole(Fcv);
 
-	vector<Vec3f> lines;
-	computeCorrespondEpilines(points1, 1, F2, lines);
+	computeCorrespondEpilines(points1, 1, F_t, lines1);
+	computeCorrespondEpilines(points2, 1, F_t, lines2);
 
 	// for all epipolar lines
-	for (auto it = lines.begin(); it != lines.end(); ++it)
+	for (auto it = lines1.begin(); it != lines1.end(); ++it)
 	{
 		// draw the epipolar line between first and last column
 		line(imLc, Point(0, -(*it)[2] / (*it)[1]), Point(imLc.cols, -((*it)[2] + (*it)[0] * imLc.cols) / (*it)[1]), Scalar(255), 1, 8, 0);
+		line(imRc, Point(0, -(*it)[2] / (*it)[1]), Point(imRc.cols, -((*it)[2] + (*it)[0] * imRc.cols) / (*it)[1]), Scalar(255), 1, 8, 0);
 	}
-
-	cout << F_t << "\n" << F << "\n"  << endl;
-	cout << E1 << "\n" << E2  << endl;
 
 ////////////////////////////////////////////////////////////////////////////////////////////
 	imshow("Left Image 1", imLc);
-//	imshow("Right Image 1", imRc);
+	imshow("Right Image 1", imRc);
 
 
 	waitKey(0);

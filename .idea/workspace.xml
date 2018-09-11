@@ -12,67 +12,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3c7110fe-4dda-4a71-b541-2544d08c7e73" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Tests/OpTest.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Tests/epiLines.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/srcFiles/PointOps.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeCache.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/3.5.1/CMakeCCompiler.cmake" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/3.5.1/CMakeCXXCompiler.cmake" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/3.5.1/CMakeDetermineCompilerABI_C.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/3.5.1/CMakeDetermineCompilerABI_CXX.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/3.5.1/CMakeSystem.cmake" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/3.5.1/CompilerIdC/CMakeCCompilerId.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/3.5.1/CompilerIdC/a.out" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/3.5.1/CompilerIdCXX/a.out" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/CMakeDirectoryInformation.cmake" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/CMakeOutput.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/Makefile.cmake" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/Makefile2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/TargetDirectories.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/cmake.check_cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/feature_tests.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/feature_tests.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/feature_tests.cxx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/progress.marks" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/vo.dir/CXX.includecache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/vo.dir/DependInfo.cmake" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/vo.dir/build.make" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/vo.dir/cmake_clean.cmake" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/vo.dir/depend.internal" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/vo.dir/depend.make" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/vo.dir/flags.make" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/vo.dir/link.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/vo.dir/progress.make" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/vo.dir/src/VisOdom.cc.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/vo.dir/src/main.cc.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/Makefile" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/cmake_install.cmake" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/vo" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeOutput.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeOutput.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/progress.marks" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/progress.marks" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/vo.dir/CXX.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/vo.dir/CXX.includecache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/vo.dir/DependInfo.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/vo.dir/DependInfo.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/vo.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/vo.dir/build.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/vo.dir/cmake_clean.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/vo.dir/cmake_clean.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/vo.dir/depend.internal" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/vo.dir/depend.internal" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/vo.dir/depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/vo.dir/depend.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/vo.dir/link.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/vo.dir/link.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/vo.dir/progress.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/vo.dir/progress.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/vo.dir/src/main.cc.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/vo.dir/src/main.cc.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/MonocularVO.cbp" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/MonocularVO.cbp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/vo" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/vo" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/include/FeatTrack.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/include/FeatTrack.hpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/include/epipolar.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/include/epipolar.hpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/FeatTrack.cc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/epipolar.cc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main.cc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Tests/epiLines.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tests/epiLines.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/srcFiles/epipolar.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/srcFiles/epipolar.cpp" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -100,13 +43,13 @@
     <session id="-1786980248">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="23" />
+          <entry key="project.closed" value="24" />
           <entry key="project.open.time.0" value="1" />
           <entry key="project.open.time.4" value="1" />
-          <entry key="project.open.time.5" value="10" />
+          <entry key="project.open.time.5" value="11" />
           <entry key="project.open.time.6" value="10" />
           <entry key="project.open.time.7" value="2" />
-          <entry key="project.opened" value="24" />
+          <entry key="project.opened" value="25" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -114,20 +57,20 @@
           <entry key="Doxygen" value="1" />
           <entry key="cc" value="7" />
           <entry key="cmake" value="1" />
-          <entry key="cpp" value="22" />
-          <entry key="h" value="3" />
-          <entry key="hpp" value="25" />
+          <entry key="cpp" value="24" />
+          <entry key="h" value="5" />
+          <entry key="hpp" value="26" />
           <entry key="md" value="4" />
           <entry key="txt" value="2" />
-          <entry key="vo (disassembly)" value="19" />
+          <entry key="vo (disassembly)" value="21" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CMakeLists.txt" value="3" />
-          <entry key="Disassembly" value="19" />
+          <entry key="Disassembly" value="21" />
           <entry key="Markdown" value="3" />
-          <entry key="ObjectiveC" value="57" />
+          <entry key="ObjectiveC" value="62" />
           <entry key="PLAIN_TEXT" value="2" />
         </counts>
       </usages-collector>
@@ -136,9 +79,9 @@
         <counts>
           <entry key="Doxygen" value="79" />
           <entry key="cc" value="12802" />
-          <entry key="cpp" value="10273" />
+          <entry key="cpp" value="13104" />
           <entry key="h" value="15" />
-          <entry key="hpp" value="5313" />
+          <entry key="hpp" value="5342" />
           <entry key="md" value="783" />
           <entry key="txt" value="254" />
         </counts>
@@ -148,7 +91,7 @@
           <entry key="CMakeLists.txt" value="254" />
           <entry key="Doxygen file" value="10" />
           <entry key="Markdown" value="783" />
-          <entry key="ObjectiveC" value="28393" />
+          <entry key="ObjectiveC" value="31253" />
           <entry key="PLAIN_TEXT" value="79" />
         </counts>
       </usages-collector>
@@ -159,20 +102,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="247">
+            <state>
               <caret line="13" selection-start-line="13" selection-end-line="13" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Tests/epiLines.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="361">
-              <caret line="19" column="21" selection-start-line="19" selection-start-column="21" selection-end-line="19" selection-end-column="21" />
-              <folding>
-                <element signature="e#42#66#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="413">
+              <caret line="54" column="24" selection-start-line="54" selection-start-column="24" selection-end-line="54" selection-end-column="24" />
             </state>
           </provider>
         </entry>
@@ -180,8 +120,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/srcFiles/epipolar.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret selection-end-line="22" selection-end-column="3" />
+            <state relative-caret-position="550">
+              <caret line="319" column="31" selection-start-line="319" selection-start-column="31" selection-end-line="319" selection-end-column="31" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="264">
+              <caret line="29" selection-start-line="29" selection-end-line="30" selection-end-column="114" />
             </state>
           </provider>
         </entry>
@@ -189,26 +138,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/include/epipolar.hpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="141">
-              <caret line="91" selection-start-line="91" selection-end-line="94" selection-end-column="3" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/include/FeatTrack.hpp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="342">
-              <caret line="18" column="21" lean-forward="true" selection-start-line="18" selection-start-column="21" selection-end-line="18" selection-end-column="21" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/srcFiles/FeatTrack.cpp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="399">
-              <caret line="21" column="89" selection-start-line="21" selection-start-column="89" selection-end-line="21" selection-end-column="89" />
+            <state relative-caret-position="465">
+              <caret line="101" column="55" selection-start-line="101" selection-start-column="55" selection-end-line="101" selection-end-column="55" />
             </state>
           </provider>
         </entry>
@@ -244,14 +175,14 @@
         <option value="$PROJECT_DIR$/include/PointOps.h" />
         <option value="$PROJECT_DIR$/src/Tests/OpTest.cpp" />
         <option value="$PROJECT_DIR$/CMakeLists.txt" />
-        <option value="$PROJECT_DIR$/include/epipolar.hpp" />
-        <option value="$PROJECT_DIR$/src/srcFiles/epipolar.cpp" />
-        <option value="$PROJECT_DIR$/src/Tests/epiLines.cpp" />
         <option value="$PROJECT_DIR$/Doxygen/Doxygen" />
         <option value="$PROJECT_DIR$/include/PointOps.hpp" />
         <option value="$PROJECT_DIR$/src/srcFiles/PointOps.cpp" />
         <option value="$PROJECT_DIR$/include/FeatTrack.hpp" />
         <option value="$PROJECT_DIR$/src/srcFiles/FeatTrack.cpp" />
+        <option value="$PROJECT_DIR$/include/epipolar.hpp" />
+        <option value="$PROJECT_DIR$/src/srcFiles/epipolar.cpp" />
+        <option value="$PROJECT_DIR$/src/Tests/epiLines.cpp" />
       </list>
     </option>
   </component>
@@ -371,12 +302,13 @@
       <workItem from="1536533258704" duration="2699000" />
       <workItem from="1536544888435" duration="10487000" />
       <workItem from="1536591092264" duration="1780000" />
-      <workItem from="1536613187876" duration="7984000" />
+      <workItem from="1536613187876" duration="13705000" />
+      <workItem from="1536670021058" duration="12764000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="160343000" />
+    <option name="totallyTimeSpent" value="178828000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -391,7 +323,7 @@
     <frame x="64" y="-11" width="1857" height="1092" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49717513" visible="true" weight="0.20729685" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49717513" visible="true" weight="0.20950802" />
       <window_info id="Structure" order="1" sideWeight="0.50282484" side_tool="true" weight="0.17412935" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -402,8 +334,8 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.3294979" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Messages" order="8" weight="0.3294979" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="9" visible="true" weight="0.32635984" />
+      <window_info active="true" anchor="bottom" id="Messages" order="8" visible="true" weight="0.3294979" />
+      <window_info anchor="bottom" id="Terminal" order="9" weight="0.32635984" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="11" weight="0.3294979" />
       <window_info anchor="bottom" id="CMake" order="12" weight="0.3294979" />
@@ -482,6 +414,11 @@
     <entry file="file://$PROJECT_DIR$/include/PointOps.h" />
     <entry file="file://$PROJECT_DIR$/src/epipolar.cpp" />
     <entry file="file://$PROJECT_DIR$/README.md">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="494">
+          <caret line="26" column="107" lean-forward="true" selection-start-line="26" selection-start-column="107" selection-end-line="26" selection-end-column="107" />
+        </state>
+      </provider>
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
           <first_editor relative-caret-position="38">
@@ -490,47 +427,11 @@
           <second_editor />
         </state>
       </provider>
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="494">
-          <caret line="26" column="107" lean-forward="true" selection-start-line="26" selection-start-column="107" selection-end-line="26" selection-end-column="107" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Tests/OpTest.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="446">
           <caret line="36" column="1" lean-forward="true" selection-start-line="36" selection-start-column="1" selection-end-line="36" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-552">
-          <caret line="64" column="39" selection-start-line="64" selection-start-column="39" selection-end-line="64" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///usr/local/include/eigen3/Eigen/src/Core/Block.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="119" selection-start-line="119" selection-end-line="119" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="13" selection-start-line="13" selection-end-line="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Tests/epiLines.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="361">
-          <caret line="19" column="21" selection-start-line="19" selection-start-column="21" selection-end-line="19" selection-end-column="21" />
-          <folding>
-            <element signature="e#42#66#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -555,31 +456,59 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/include/epipolar.hpp">
+    <entry file="file://$PROJECT_DIR$/src/srcFiles/FeatTrack.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="141">
-          <caret line="91" selection-start-line="91" selection-end-line="94" selection-end-column="3" />
+        <state relative-caret-position="-114">
+          <caret line="21" column="89" selection-start-line="21" selection-start-column="89" selection-end-line="21" selection-end-column="89" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/include/FeatTrack.hpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="342">
-          <caret line="18" column="21" lean-forward="true" selection-start-line="18" selection-start-column="21" selection-end-line="18" selection-end-column="21" />
+          <caret line="18" column="21" selection-start-line="18" selection-start-column="21" selection-end-line="18" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret line="13" selection-start-line="13" selection-end-line="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/local/include/eigen3/Eigen/src/Core/Block.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="119" selection-start-line="119" selection-end-line="119" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/include/epipolar.hpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="465">
+          <caret line="101" column="55" selection-start-line="101" selection-start-column="55" selection-end-line="101" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="29" selection-start-line="29" selection-end-line="30" selection-end-column="114" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/srcFiles/epipolar.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret selection-end-line="22" selection-end-column="3" />
+        <state relative-caret-position="550">
+          <caret line="319" column="31" selection-start-line="319" selection-start-column="31" selection-end-line="319" selection-end-column="31" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/srcFiles/FeatTrack.cpp">
+    <entry file="file://$PROJECT_DIR$/src/Tests/epiLines.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="399">
-          <caret line="21" column="89" selection-start-line="21" selection-start-column="89" selection-end-line="21" selection-end-column="89" />
+        <state relative-caret-position="413">
+          <caret line="54" column="24" selection-start-line="54" selection-start-column="24" selection-end-line="54" selection-end-column="24" />
         </state>
       </provider>
     </entry>
