@@ -37,19 +37,13 @@ int main()
 	/*-----------------------Declarations-----------------------*/
 	// Path variables
 	int sequence_id = 0;
-	int frame_id = 1;
 
 	// Read Images
 	Mat imR, imL, imLc, imRc;
 	FeatTrack Features;
 	epipolar epi;
-	PointOps Pt;
-	double scale = 1.00;
-	char filename_imL[200], filename_imR[200], filename_gt[200], filename_loop[200], text[100];
-	int fontFace = FONT_HERSHEY_PLAIN;
-	double fontScale = 1;
-	int thickness = 1;
-	cv::Point textOrg(10, 50);
+
+	char filename_imL[200], filename_imR[200];
 
 	sprintf(filename_imL, "/home/yashmanian/Datasets/KITTI_VO/sequences/%02d/image_2/%06d.png", sequence_id, 0);
 	sprintf(filename_imR, "/home/yashmanian/Datasets/KITTI_VO/sequences/%02d/image_2/%06d.png", sequence_id, 1);
