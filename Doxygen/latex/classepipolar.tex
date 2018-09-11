@@ -1,0 +1,160 @@
+\hypertarget{classepipolar}{}\section{epipolar Class Reference}
+\label{classepipolar}\index{epipolar@{epipolar}}
+
+
+Definition of the epipolar class. It contains all the functions and variables required to compute epipolar geometry.  
+
+
+
+
+{\ttfamily \#include $<$epipolar.\+hpp$>$}
+
+
+
+Inheritance diagram for epipolar\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=137pt]{classepipolar__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for epipolar\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=137pt]{classepipolar__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classepipolar_af5946f7532025b261a04dac12e18946d}{epipolar} ()
+\begin{DoxyCompactList}\small\item\em Constructor for the epipolar class. \end{DoxyCompactList}\item 
+Eigen\+::\+Matrix3d \hyperlink{classepipolar_a704a496c08556dac8133ec1b403e728c}{get\+Camera\+Params} (char filename\+\_\+calib\mbox{[}200\mbox{]})
+\begin{DoxyCompactList}\small\item\em Gets camera parameters from the calib.\+txt files in the dataset. The folder structure is assumed to be similar to the K\+I\+T\+TI dataset. \end{DoxyCompactList}\item 
+double \hyperlink{classepipolar_a7afbdbd2643ef41ca10bd7ad053f3762}{get\+Absolute\+Scale} (char filename\+\_\+gt\mbox{[}200\mbox{]}, int frame\+\_\+id)
+\begin{DoxyCompactList}\small\item\em Gets scale from ground truth file depending on the image sequence, from the pose folder. \end{DoxyCompactList}\item 
+void \hyperlink{classepipolar_a7c50ca7a4431c5e08a848bed9dba878e}{estimate\+Fundamental\+Matrix} (Eigen\+::\+Matrix\+Xd \&points1, Eigen\+::\+Matrix\+Xd \&points2, Eigen\+::\+Matrix3d \&F)
+\begin{DoxyCompactList}\small\item\em Estimates fundamental matrix from matched points. Takes in the matrix F by reference which is updated. \end{DoxyCompactList}\item 
+void \hyperlink{classepipolar_a8530a3ec65e1915ee7df1c555c74014e}{Fundamental\+Mat\+R\+A\+N\+S\+AC} (Eigen\+::\+Matrix3d \&F, Eigen\+::\+Matrix\+Xd \&points1, Eigen\+::\+Matrix\+Xd \&points2)
+\begin{DoxyCompactList}\small\item\em Uses R\+A\+N\+S\+AC to refine the Fundamental matrix. This takes advantage of the fact that the features lie on the epipolar plane. \end{DoxyCompactList}\item 
+Eigen\+::\+Matrix\+Xd \hyperlink{classepipolar_ad5ce6ee9ac5df7f8f02e4c48686cc637}{compute\+Epipole} (Eigen\+::\+Matrix3d \&F)
+\begin{DoxyCompactList}\small\item\em Computes epipole based on the idea that the epipoles lie on the epipolar plane. So Linear Least Squares to solve e2\+T$\ast$\+F$\ast$e1 = 0. \end{DoxyCompactList}\item 
+void \hyperlink{classepipolar_a432430b23bb8a15d2ad9d9269b516839}{draw\+Epipolar\+Lines} (cv\+::\+Mat \&img1, cv\+::\+Mat \&img2, std\+::vector$<$ cv\+::\+Point2f $>$ \&points1, std\+::vector$<$ cv\+::\+Point2f $>$ \&points2, cv\+::\+Point2f \&epipole)
+\begin{DoxyCompactList}\small\item\em Draws epipolar lines on the images passed in. Takes in the matched points and the two images. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Definition of the epipolar class. It contains all the functions and variables required to compute epipolar geometry. 
+
+The sole purpose of this class is to compute geometry based on matched points. Inherits the \hyperlink{class_point_ops}{Point\+Ops} class and uses the mathematical conversion methods from it. 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{epipolar@{epipolar}!epipolar@{epipolar}}
+\index{epipolar@{epipolar}!epipolar@{epipolar}}
+\subsubsection[{\texorpdfstring{epipolar()}{epipolar()}}]{\setlength{\rightskip}{0pt plus 5cm}epipolar\+::epipolar (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classepipolar_af5946f7532025b261a04dac12e18946d}{}\label{classepipolar_af5946f7532025b261a04dac12e18946d}
+
+
+Constructor for the epipolar class. 
+
+Initializes the camera matrix to default values in the event of file reading failure. Initializes R\+A\+N\+S\+AC variables. 
+
+\subsection{Member Function Documentation}
+\index{epipolar@{epipolar}!compute\+Epipole@{compute\+Epipole}}
+\index{compute\+Epipole@{compute\+Epipole}!epipolar@{epipolar}}
+\subsubsection[{\texorpdfstring{compute\+Epipole(\+Eigen\+::\+Matrix3d \&\+F)}{computeEpipole(Eigen::Matrix3d &F)}}]{\setlength{\rightskip}{0pt plus 5cm}Eigen\+::\+Matrix\+Xd epipolar\+::compute\+Epipole (
+\begin{DoxyParamCaption}
+\item[{Eigen\+::\+Matrix3d \&}]{F}
+\end{DoxyParamCaption}
+)}\hypertarget{classepipolar_ad5ce6ee9ac5df7f8f02e4c48686cc637}{}\label{classepipolar_ad5ce6ee9ac5df7f8f02e4c48686cc637}
+
+
+Computes epipole based on the idea that the epipoles lie on the epipolar plane. So Linear Least Squares to solve e2\+T$\ast$\+F$\ast$e1 = 0. 
+
+Takes in the Fundamental matrix and returns a 3x2 matrix in homogenous form, with the coordinates for the epipole. \index{epipolar@{epipolar}!draw\+Epipolar\+Lines@{draw\+Epipolar\+Lines}}
+\index{draw\+Epipolar\+Lines@{draw\+Epipolar\+Lines}!epipolar@{epipolar}}
+\subsubsection[{\texorpdfstring{draw\+Epipolar\+Lines(cv\+::\+Mat \&img1, cv\+::\+Mat \&img2, std\+::vector$<$ cv\+::\+Point2f $>$ \&points1, std\+::vector$<$ cv\+::\+Point2f $>$ \&points2, cv\+::\+Point2f \&epipole)}{drawEpipolarLines(cv::Mat &img1, cv::Mat &img2, std::vector< cv::Point2f > &points1, std::vector< cv::Point2f > &points2, cv::Point2f &epipole)}}]{\setlength{\rightskip}{0pt plus 5cm}void epipolar\+::draw\+Epipolar\+Lines (
+\begin{DoxyParamCaption}
+\item[{cv\+::\+Mat \&}]{img1, }
+\item[{cv\+::\+Mat \&}]{img2, }
+\item[{std\+::vector$<$ cv\+::\+Point2f $>$ \&}]{points1, }
+\item[{std\+::vector$<$ cv\+::\+Point2f $>$ \&}]{points2, }
+\item[{cv\+::\+Point2f \&}]{epipole}
+\end{DoxyParamCaption}
+)}\hypertarget{classepipolar_a432430b23bb8a15d2ad9d9269b516839}{}\label{classepipolar_a432430b23bb8a15d2ad9d9269b516839}
+
+
+Draws epipolar lines on the images passed in. Takes in the matched points and the two images. 
+
+Draws the lines between the epipole and the features. \index{epipolar@{epipolar}!estimate\+Fundamental\+Matrix@{estimate\+Fundamental\+Matrix}}
+\index{estimate\+Fundamental\+Matrix@{estimate\+Fundamental\+Matrix}!epipolar@{epipolar}}
+\subsubsection[{\texorpdfstring{estimate\+Fundamental\+Matrix(\+Eigen\+::\+Matrix\+Xd \&points1, Eigen\+::\+Matrix\+Xd \&points2, Eigen\+::\+Matrix3d \&\+F)}{estimateFundamentalMatrix(Eigen::MatrixXd &points1, Eigen::MatrixXd &points2, Eigen::Matrix3d &F)}}]{\setlength{\rightskip}{0pt plus 5cm}void epipolar\+::estimate\+Fundamental\+Matrix (
+\begin{DoxyParamCaption}
+\item[{Eigen\+::\+Matrix\+Xd \&}]{points1, }
+\item[{Eigen\+::\+Matrix\+Xd \&}]{points2, }
+\item[{Eigen\+::\+Matrix3d \&}]{F}
+\end{DoxyParamCaption}
+)}\hypertarget{classepipolar_a7c50ca7a4431c5e08a848bed9dba878e}{}\label{classepipolar_a7c50ca7a4431c5e08a848bed9dba878e}
+
+
+Estimates fundamental matrix from matched points. Takes in the matrix F by reference which is updated. 
+
+This version uses the 8 point algorithm and solves the Linear Least Squares problem Ax = 0 using S\+VD. The method can take more than 8 points and still compute the matrix. Takes in the matched points in the form of a 3xN matrix of homogenous coordinates. 
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classepipolar_a7c50ca7a4431c5e08a848bed9dba878e_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{epipolar@{epipolar}!Fundamental\+Mat\+R\+A\+N\+S\+AC@{Fundamental\+Mat\+R\+A\+N\+S\+AC}}
+\index{Fundamental\+Mat\+R\+A\+N\+S\+AC@{Fundamental\+Mat\+R\+A\+N\+S\+AC}!epipolar@{epipolar}}
+\subsubsection[{\texorpdfstring{Fundamental\+Mat\+R\+A\+N\+S\+A\+C(\+Eigen\+::\+Matrix3d \&\+F, Eigen\+::\+Matrix\+Xd \&points1, Eigen\+::\+Matrix\+Xd \&points2)}{FundamentalMatRANSAC(Eigen::Matrix3d &F, Eigen::MatrixXd &points1, Eigen::MatrixXd &points2)}}]{\setlength{\rightskip}{0pt plus 5cm}void epipolar\+::\+Fundamental\+Mat\+R\+A\+N\+S\+AC (
+\begin{DoxyParamCaption}
+\item[{Eigen\+::\+Matrix3d \&}]{F, }
+\item[{Eigen\+::\+Matrix\+Xd \&}]{points1, }
+\item[{Eigen\+::\+Matrix\+Xd \&}]{points2}
+\end{DoxyParamCaption}
+)}\hypertarget{classepipolar_a8530a3ec65e1915ee7df1c555c74014e}{}\label{classepipolar_a8530a3ec65e1915ee7df1c555c74014e}
+
+
+Uses R\+A\+N\+S\+AC to refine the Fundamental matrix. This takes advantage of the fact that the features lie on the epipolar plane. 
+
+Uses x2\+T$\ast$\+F$\ast$x1 = 0 as a distance function for the R\+A\+N\+S\+AC. Once inliers are selected, a final fundamental matrix is computed using them. \index{epipolar@{epipolar}!get\+Absolute\+Scale@{get\+Absolute\+Scale}}
+\index{get\+Absolute\+Scale@{get\+Absolute\+Scale}!epipolar@{epipolar}}
+\subsubsection[{\texorpdfstring{get\+Absolute\+Scale(char filename\+\_\+gt[200], int frame\+\_\+id)}{getAbsoluteScale(char filename_gt[200], int frame_id)}}]{\setlength{\rightskip}{0pt plus 5cm}double epipolar\+::get\+Absolute\+Scale (
+\begin{DoxyParamCaption}
+\item[{char}]{filename\+\_\+gt\mbox{[}200\mbox{]}, }
+\item[{int}]{frame\+\_\+id}
+\end{DoxyParamCaption}
+)}\hypertarget{classepipolar_a7afbdbd2643ef41ca10bd7ad053f3762}{}\label{classepipolar_a7afbdbd2643ef41ca10bd7ad053f3762}
+
+
+Gets scale from ground truth file depending on the image sequence, from the pose folder. 
+
+Ground truth is used to get scale for this application. This can be switched out to get scale from another source, like a speedometer. \index{epipolar@{epipolar}!get\+Camera\+Params@{get\+Camera\+Params}}
+\index{get\+Camera\+Params@{get\+Camera\+Params}!epipolar@{epipolar}}
+\subsubsection[{\texorpdfstring{get\+Camera\+Params(char filename\+\_\+calib[200])}{getCameraParams(char filename_calib[200])}}]{\setlength{\rightskip}{0pt plus 5cm}Eigen\+::\+Matrix3d epipolar\+::get\+Camera\+Params (
+\begin{DoxyParamCaption}
+\item[{char}]{filename\+\_\+calib\mbox{[}200\mbox{]}}
+\end{DoxyParamCaption}
+)}\hypertarget{classepipolar_a704a496c08556dac8133ec1b403e728c}{}\label{classepipolar_a704a496c08556dac8133ec1b403e728c}
+
+
+Gets camera parameters from the calib.\+txt files in the dataset. The folder structure is assumed to be similar to the K\+I\+T\+TI dataset. 
+
+Reads the parameters from the text files and stores it in the K matrix parameter. If reading the file fails, default values are used. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/yashmanian/\+C\+P\+P/\+Monocular\+V\+O/include/\hyperlink{epipolar_8hpp}{epipolar.\+hpp}\item 
+/home/yashmanian/\+C\+P\+P/\+Monocular\+V\+O/src/src\+Files/\hyperlink{epipolar_8cpp}{epipolar.\+cpp}\end{DoxyCompactItemize}

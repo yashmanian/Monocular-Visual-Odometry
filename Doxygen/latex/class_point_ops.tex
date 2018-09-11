@@ -1,0 +1,63 @@
+\hypertarget{class_point_ops}{}\section{Point\+Ops Class Reference}
+\label{class_point_ops}\index{Point\+Ops@{Point\+Ops}}
+
+
+Definition of the \hyperlink{class_point_ops}{Point\+Ops} class. It contains all the functions and variables required manipulate point formats.  
+
+
+
+
+{\ttfamily \#include $<$Point\+Ops.\+hpp$>$}
+
+
+
+Inheritance diagram for Point\+Ops\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=137pt]{class_point_ops__inherit__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+Eigen\+::\+Matrix\+Xd \hyperlink{class_point_ops_aedd3f88c0e3eccd17085585cdd85319a}{normalise2dpts} (Eigen\+::\+Matrix\+Xd \&pts)
+\begin{DoxyCompactList}\small\item\em Normalises the point set around its centroid. \end{DoxyCompactList}\item 
+Eigen\+::\+Matrix\+Xd \hyperlink{class_point_ops_a850c1cf8569537a6ec70dc2721c4ab1f}{cv2\+Eigen\+Homogenous} (std\+::vector$<$ cv\+::\+Point2f $>$ \&pts)
+\begin{DoxyCompactList}\small\item\em Converts a vector of 2D points to a 3xN matrix of homogenous points. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Definition of the \hyperlink{class_point_ops}{Point\+Ops} class. It contains all the functions and variables required manipulate point formats. 
+
+This class will contain methods to run mathematical operations on sets of matched points. 
+
+\subsection{Member Function Documentation}
+\index{Point\+Ops@{Point\+Ops}!cv2\+Eigen\+Homogenous@{cv2\+Eigen\+Homogenous}}
+\index{cv2\+Eigen\+Homogenous@{cv2\+Eigen\+Homogenous}!Point\+Ops@{Point\+Ops}}
+\subsubsection[{\texorpdfstring{cv2\+Eigen\+Homogenous(std\+::vector$<$ cv\+::\+Point2f $>$ \&pts)}{cv2EigenHomogenous(std::vector< cv::Point2f > &pts)}}]{\setlength{\rightskip}{0pt plus 5cm}Eigen\+::\+Matrix\+Xd Point\+Ops\+::cv2\+Eigen\+Homogenous (
+\begin{DoxyParamCaption}
+\item[{std\+::vector$<$ cv\+::\+Point2f $>$ \&}]{pts}
+\end{DoxyParamCaption}
+)}\hypertarget{class_point_ops_a850c1cf8569537a6ec70dc2721c4ab1f}{}\label{class_point_ops_a850c1cf8569537a6ec70dc2721c4ab1f}
+
+
+Converts a vector of 2D points to a 3xN matrix of homogenous points. 
+
+Allows conversion from open\+CV Point2f features to Eigen Matrices. \index{Point\+Ops@{Point\+Ops}!normalise2dpts@{normalise2dpts}}
+\index{normalise2dpts@{normalise2dpts}!Point\+Ops@{Point\+Ops}}
+\subsubsection[{\texorpdfstring{normalise2dpts(\+Eigen\+::\+Matrix\+Xd \&pts)}{normalise2dpts(Eigen::MatrixXd &pts)}}]{\setlength{\rightskip}{0pt plus 5cm}Eigen\+::\+Matrix\+Xd Point\+Ops\+::normalise2dpts (
+\begin{DoxyParamCaption}
+\item[{Eigen\+::\+Matrix\+Xd \&}]{pts}
+\end{DoxyParamCaption}
+)}\hypertarget{class_point_ops_aedd3f88c0e3eccd17085585cdd85319a}{}\label{class_point_ops_aedd3f88c0e3eccd17085585cdd85319a}
+
+
+Normalises the point set around its centroid. 
+
+Takes in a 3xN matrix of points and returns a 3xN matrix of normalised homogenous coordinates. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/yashmanian/\+C\+P\+P/\+Monocular\+V\+O/include/\hyperlink{_point_ops_8hpp}{Point\+Ops.\+hpp}\item 
+/home/yashmanian/\+C\+P\+P/\+Monocular\+V\+O/src/src\+Files/\hyperlink{_point_ops_8cpp}{Point\+Ops.\+cpp}\end{DoxyCompactItemize}

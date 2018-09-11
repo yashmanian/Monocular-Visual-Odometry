@@ -1,9 +1,32 @@
+/** MIT License
+Copyright (c) 2018 Yash Manian
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
+CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+ *
+ *@copyright Copyright 2018 Yash Manian
+ *@file epipolar.hpp
+ *@author Yash Manian
+ *@brief Header file with definitions for class epipolar.
+ *@brief Declaration of methods to compute Epipolar constraints
+ */
+
+
 #ifndef EPIPOLAR_H
 #define EPIPOLAR_H
 
 // Opencv includes
-#include <Eigen/Dense>
-#include <opencv2/core/eigen.hpp>
 #include "opencv2/video/tracking.hpp"
 #include "opencv2/imgproc/imgproc.hpp"
 #include "opencv2/highgui/highgui.hpp"
@@ -18,28 +41,72 @@
 #include <sstream>
 #include <fstream>
 #include <string>
+#include <Eigen/Dense>
+#include <Eigen/SVD>
+#include <Eigen/Core>
+#include "PointOps.hpp"
 
 
+/**
+ *@brief Definition of the epipolar class. It contains all the functions and variables required to compute epipolar geometry.
+ *@brief The sole purpose of this class is to compute geometry based on matched points.
+ *@brief Inherits the PointOps class and uses the mathematical conversion methods from it.
+ */
 
-class epipolar
+class epipolar: public PointOps
 {
 private:
-	cv::Size winSize;
-	cv::TermCriteria termcriteria;
 	double fx, fy, skew, cx, cy;
-	cv::Point2d pp;
-	cv::Mat K = cv::Mat::zeros(3, 3, CV_64F);
+	Eigen::Matrix3d K;
 	int MaxIter;
+	double RANSAC_THRESH;
 
 public:
+
+/**
+ *@brief Constructor for the epipolar class.
+ *@brief Initializes the camera matrix to default values in the event of file reading failure. Initializes RANSAC variables.
+ */
 	epipolar();
-	cv::Mat getCameraParams(char filename_calib[200]);
+
+/**
+ *@brief Gets camera parameters from the calib.txt files in the dataset. The folder structure is assumed to be similar to the KITTI dataset
+ *@brief Reads the parameters from the text files and stores it in the K matrix parameter. If reading the file fails, default values are used.
+ */
+	Eigen::Matrix3d getCameraParams(char filename_calib[200]);
+
+/**
+ *@brief Gets scale from ground truth file depending on the image sequence, from the pose folder.
+ *@brief Ground truth is used to get scale for this application. This can be switched out to get scale from another source, like a speedometer.
+ */
 	double getAbsoluteScale(char filename_gt[200], int frame_id);
-	void estimateFundamentalMatrix(std::vector<cv::Point2f> &points1, std::vector<cv::Point2f> &points2, cv::Mat &F);
-	void fundamentalMatrixRANSAC(std::vector<cv::Point2f> &img_1_points, std::vector<cv::Point2f> &img_2_points, cv::Mat &F);
-	void estimateEssentialMatrix(cv::Mat &F, cv::Mat &E);
-	void estimatePose(cv::Mat &E, cv::Mat &R, cv::Mat &t, std::vector<cv::Point2f> &p1, std::vector<cv::Point2f> &p2);
-	int cheiralityCheckedPose(std::vector<cv::Mat> &PXcam, cv::Mat &x1, cv::Mat &x2);
+
+/**
+ *@brief Estimates fundamental matrix from matched points. Takes in the matrix F by reference which is updated.
+ *@brief This version uses the 8 point algorithm and solves the Linear Least Squares problem Ax = 0 using SVD.
+ *@brief The method can take more than 8 points and still compute the matrix.
+ *@brief Takes in the matched points in the form of a 3xN matrix of homogenous coordinates.
+ */
+	void estimateFundamentalMatrix(Eigen::MatrixXd &points1, Eigen::MatrixXd &points2, Eigen::Matrix3d &F);
+
+/**
+ *@brief Uses RANSAC to refine the Fundamental matrix. This takes advantage of the fact that the features lie on the epipolar plane.
+ *@brief Uses x2T*F*x1 = 0 as a distance function for the RANSAC. Once inliers are selected, a final fundamental matrix is computed using them.
+ */
+	void FundamentalMatRANSAC(Eigen::Matrix3d &F, Eigen::MatrixXd &points1, Eigen::MatrixXd &points2);
+
+/**
+ *@brief Computes epipole based on the idea that the epipoles lie on the epipolar plane. So Linear Least Squares to solve e2T*F*e1 = 0.
+ *@brief Takes in the Fundamental matrix and returns a 3x2 matrix in homogenous form, with the coordinates for the epipole.
+ */
+	Eigen::MatrixXd computeEpipole(Eigen::Matrix3d &F);
+
+/**
+ *@brief Draws epipolar lines on the images passed in. Takes in the matched points and the two images
+ *@brief Draws the lines between the epipole and the features.
+ */
+	void drawEpipolarLines(cv::Mat &img1, cv::Mat &img2, std::vector<cv::Point2f> &points1, std::vector<cv::Point2f> &points2, cv::Point2f &epipole);
+
 };
 
 #endif

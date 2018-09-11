@@ -1,0 +1,113 @@
+\hypertarget{class_feat_track}{}\section{Feat\+Track Class Reference}
+\label{class_feat_track}\index{Feat\+Track@{Feat\+Track}}
+
+
+Definition of the \hyperlink{class_feat_track}{Feat\+Track} class. It contains all the functions and variables for detection, tracking and computing homography.  
+
+
+
+
+{\ttfamily \#include $<$Feat\+Track.\+hpp$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_feat_track_a1155bdc5bde9a95519354144f9920beb}{Feat\+Track} ()
+\begin{DoxyCompactList}\small\item\em Constructor for the \hyperlink{class_feat_track}{Feat\+Track} class. \end{DoxyCompactList}\item 
+void \hyperlink{class_feat_track_ab1dd27505ee431ded0b68a32d959410b}{feature\+Tracking} (cv\+::\+Mat img\+\_\+1, cv\+::\+Mat img\+\_\+2, std\+::vector$<$ cv\+::\+Point2f $>$ \&img\+\_\+1\+\_\+points, std\+::vector$<$ cv\+::\+Point2f $>$ \&img\+\_\+2\+\_\+points, std\+::vector$<$ uchar $>$ \&status)
+\begin{DoxyCompactList}\small\item\em Calculates flow between two images based on detected features. \end{DoxyCompactList}\item 
+void \hyperlink{class_feat_track_ae0c07b941c44dd1bf32d866611561835}{feature\+Detection} (cv\+::\+Mat img\+\_\+1, std\+::vector$<$ cv\+::\+Point2f $>$ \&img\+\_\+points)
+\begin{DoxyCompactList}\small\item\em Detects F\+A\+ST features on the input image. \end{DoxyCompactList}\item 
+void \hyperlink{class_feat_track_a46b14a758dd70d9a6e7a70f0cdfaa347}{compute\+Homography} (std\+::vector$<$ cv\+::\+Point2f $>$ \&x1, std\+::vector$<$ cv\+::\+Point2f $>$ \&x2, cv\+::\+Mat \&H)
+\begin{DoxyCompactList}\small\item\em Computes homography between two images. \end{DoxyCompactList}\item 
+void \hyperlink{class_feat_track_abb6e503ee7c4eaed6c00d386d797f35a}{homography\+R\+A\+N\+S\+AC} (std\+::vector$<$ cv\+::\+Point2f $>$ \&img\+\_\+1\+\_\+points, std\+::vector$<$ cv\+::\+Point2f $>$ \&img\+\_\+2\+\_\+points)
+\begin{DoxyCompactList}\small\item\em Uses R\+A\+N\+S\+AC to refine the Homography matrix. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Definition of the \hyperlink{class_feat_track}{Feat\+Track} class. It contains all the functions and variables for detection, tracking and computing homography. 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Feat\+Track@{Feat\+Track}!Feat\+Track@{Feat\+Track}}
+\index{Feat\+Track@{Feat\+Track}!Feat\+Track@{Feat\+Track}}
+\subsubsection[{\texorpdfstring{Feat\+Track()}{FeatTrack()}}]{\setlength{\rightskip}{0pt plus 5cm}Feat\+Track\+::\+Feat\+Track (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{class_feat_track_a1155bdc5bde9a95519354144f9920beb}{}\label{class_feat_track_a1155bdc5bde9a95519354144f9920beb}
+
+
+Constructor for the \hyperlink{class_feat_track}{Feat\+Track} class. 
+
+Initializes the flow calculation parameters and homography R\+A\+N\+S\+AC parameters. 
+
+\subsection{Member Function Documentation}
+\index{Feat\+Track@{Feat\+Track}!compute\+Homography@{compute\+Homography}}
+\index{compute\+Homography@{compute\+Homography}!Feat\+Track@{Feat\+Track}}
+\subsubsection[{\texorpdfstring{compute\+Homography(std\+::vector$<$ cv\+::\+Point2f $>$ \&x1, std\+::vector$<$ cv\+::\+Point2f $>$ \&x2, cv\+::\+Mat \&\+H)}{computeHomography(std::vector< cv::Point2f > &x1, std::vector< cv::Point2f > &x2, cv::Mat &H)}}]{\setlength{\rightskip}{0pt plus 5cm}void Feat\+Track\+::compute\+Homography (
+\begin{DoxyParamCaption}
+\item[{std\+::vector$<$ cv\+::\+Point2f $>$ \&}]{x1, }
+\item[{std\+::vector$<$ cv\+::\+Point2f $>$ \&}]{x2, }
+\item[{cv\+::\+Mat \&}]{H}
+\end{DoxyParamCaption}
+)}\hypertarget{class_feat_track_a46b14a758dd70d9a6e7a70f0cdfaa347}{}\label{class_feat_track_a46b14a758dd70d9a6e7a70f0cdfaa347}
+
+
+Computes homography between two images. 
+
+Takes in four matched points from each image to compute affine transform. \index{Feat\+Track@{Feat\+Track}!feature\+Detection@{feature\+Detection}}
+\index{feature\+Detection@{feature\+Detection}!Feat\+Track@{Feat\+Track}}
+\subsubsection[{\texorpdfstring{feature\+Detection(cv\+::\+Mat img\+\_\+1, std\+::vector$<$ cv\+::\+Point2f $>$ \&img\+\_\+points)}{featureDetection(cv::Mat img_1, std::vector< cv::Point2f > &img_points)}}]{\setlength{\rightskip}{0pt plus 5cm}void Feat\+Track\+::feature\+Detection (
+\begin{DoxyParamCaption}
+\item[{cv\+::\+Mat}]{img\+\_\+1, }
+\item[{std\+::vector$<$ cv\+::\+Point2f $>$ \&}]{img\+\_\+points}
+\end{DoxyParamCaption}
+)}\hypertarget{class_feat_track_ae0c07b941c44dd1bf32d866611561835}{}\label{class_feat_track_ae0c07b941c44dd1bf32d866611561835}
+
+
+Detects F\+A\+ST features on the input image. 
+
+Takes in image and an empty vector to store points. \index{Feat\+Track@{Feat\+Track}!feature\+Tracking@{feature\+Tracking}}
+\index{feature\+Tracking@{feature\+Tracking}!Feat\+Track@{Feat\+Track}}
+\subsubsection[{\texorpdfstring{feature\+Tracking(cv\+::\+Mat img\+\_\+1, cv\+::\+Mat img\+\_\+2, std\+::vector$<$ cv\+::\+Point2f $>$ \&img\+\_\+1\+\_\+points, std\+::vector$<$ cv\+::\+Point2f $>$ \&img\+\_\+2\+\_\+points, std\+::vector$<$ uchar $>$ \&status)}{featureTracking(cv::Mat img_1, cv::Mat img_2, std::vector< cv::Point2f > &img_1_points, std::vector< cv::Point2f > &img_2_points, std::vector< uchar > &status)}}]{\setlength{\rightskip}{0pt plus 5cm}void Feat\+Track\+::feature\+Tracking (
+\begin{DoxyParamCaption}
+\item[{cv\+::\+Mat}]{img\+\_\+1, }
+\item[{cv\+::\+Mat}]{img\+\_\+2, }
+\item[{std\+::vector$<$ cv\+::\+Point2f $>$ \&}]{img\+\_\+1\+\_\+points, }
+\item[{std\+::vector$<$ cv\+::\+Point2f $>$ \&}]{img\+\_\+2\+\_\+points, }
+\item[{std\+::vector$<$ uchar $>$ \&}]{status}
+\end{DoxyParamCaption}
+)}\hypertarget{class_feat_track_ab1dd27505ee431ded0b68a32d959410b}{}\label{class_feat_track_ab1dd27505ee431ded0b68a32d959410b}
+
+
+Calculates flow between two images based on detected features. 
+
+Takes in the two images in the cv\+::\+Mat format, and a vector of features from the first image, and a vector of characters to emphasize match. \index{Feat\+Track@{Feat\+Track}!homography\+R\+A\+N\+S\+AC@{homography\+R\+A\+N\+S\+AC}}
+\index{homography\+R\+A\+N\+S\+AC@{homography\+R\+A\+N\+S\+AC}!Feat\+Track@{Feat\+Track}}
+\subsubsection[{\texorpdfstring{homography\+R\+A\+N\+S\+A\+C(std\+::vector$<$ cv\+::\+Point2f $>$ \&img\+\_\+1\+\_\+points, std\+::vector$<$ cv\+::\+Point2f $>$ \&img\+\_\+2\+\_\+points)}{homographyRANSAC(std::vector< cv::Point2f > &img_1_points, std::vector< cv::Point2f > &img_2_points)}}]{\setlength{\rightskip}{0pt plus 5cm}void Feat\+Track\+::homography\+R\+A\+N\+S\+AC (
+\begin{DoxyParamCaption}
+\item[{std\+::vector$<$ cv\+::\+Point2f $>$ \&}]{img\+\_\+1\+\_\+points, }
+\item[{std\+::vector$<$ cv\+::\+Point2f $>$ \&}]{img\+\_\+2\+\_\+points}
+\end{DoxyParamCaption}
+)}\hypertarget{class_feat_track_abb6e503ee7c4eaed6c00d386d797f35a}{}\label{class_feat_track_abb6e503ee7c4eaed6c00d386d797f35a}
+
+
+Uses R\+A\+N\+S\+AC to refine the Homography matrix. 
+
+Uses compute\+Homography as a distance function for the R\+A\+N\+S\+AC. Once inliers are selected, a final Homography matrix is computed using them. 
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_feat_track_abb6e503ee7c4eaed6c00d386d797f35a_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/yashmanian/\+C\+P\+P/\+Monocular\+V\+O/include/\hyperlink{_feat_track_8hpp}{Feat\+Track.\+hpp}\item 
+/home/yashmanian/\+C\+P\+P/\+Monocular\+V\+O/src/src\+Files/\hyperlink{_feat_track_8cpp}{Feat\+Track.\+cpp}\end{DoxyCompactItemize}

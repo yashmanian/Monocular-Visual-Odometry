@@ -7,6 +7,7 @@ find_package( OpenCV REQUIRED )
 find_package( Eigen3 REQUIRED NO_MODULE )
 
 include_directories(include)
-add_executable(vo src/main.cc src/FeatTrack.cc include/FeatTrack.hpp include/epipolar.hpp src/epipolar.cc)
+#add_executable(vo src/main.cpp src/FeatTrack.cpp include/FeatTrack.hpp include/epipolar.hpp src/epipolar.cpp)
+add_executable(vo src/Tests/epiLines.cpp src/srcFiles/FeatTrack.cpp src/srcFiles/epipolar.cpp src/srcFiles/PointOps.cpp include/FeatTrack.hpp include/epipolar.hpp include/PointOps.hpp)
 
 target_link_libraries( vo ${OpenCV_LIBS} Eigen3::Eigen)

@@ -1,7 +1,8 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/vo.dir/src/main.cc.o"
-  "CMakeFiles/vo.dir/src/FeatTrack.cc.o"
-  "CMakeFiles/vo.dir/src/epipolar.cc.o"
+  "CMakeFiles/vo.dir/src/Tests/epiLines.cpp.o"
+  "CMakeFiles/vo.dir/src/srcFiles/FeatTrack.cpp.o"
+  "CMakeFiles/vo.dir/src/srcFiles/epipolar.cpp.o"
+  "CMakeFiles/vo.dir/src/srcFiles/PointOps.cpp.o"
   "vo.pdb"
   "vo"
 )

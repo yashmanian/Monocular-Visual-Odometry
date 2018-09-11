@@ -1,0 +1,77 @@
+\subsection*{Overview}
+
+This is a personal project with the objective of developing a custom implementation of Monocular Visual Odometry. I hope to contribute to this library fairly regularly. I will also be generating Doxygen documentation eventually.
+
+\subsection*{Note }
+
+This library is just a straightforward implementation at the moment. I plan to optimize it further and even use it for basic S\+L\+AM, down the line.
+
+\subsection*{Inputs }
+
+I will be using the K\+I\+T\+TI Odometry dataset. The ground truth poses will be used to compute absolute scale (seeing as I don\textquotesingle{}t have access to actual speedometer readings \+:P). I will be considering the folder structure to be similar to the K\+I\+T\+T\+I\+\_\+\+VO dataset. So if you want to use the code for yourself, you just need to change the base path as long as the internal folder structure is the same.
+
+
+\begin{DoxyCode}
+1 Path to folder
+2 +-- KITTI\_VO/
+3 |   +-- poses/
+4 |       +-- ground truth .txt files starting with 00.txt
+5 |   +-- sequences/
+6 |       +-- Sequence ID based folders (00/)
+7 |           +-- image\_2/
+8 |               +-- video frames in .png format, starting with 000000.png
+9 |           +-- image\_3/
+10 |               +-- video frames in .png format, starting with 000000.png
+11 |           +-- calib.txt
+12 |           +-- times.txt
+\end{DoxyCode}
+
+
+\subsection*{Todo (09/2/2018) }
+
+
+\begin{DoxyEnumerate}
+\item Test accuracy of Pose decomposition \& optimize function
+\item Move Window generation to class and add destructor to close windows after end of execution.
+\item Add P\+CL support for R\+A\+N\+S\+AC.
+\item Convert to Eigen (Painful but necessary)
+\end{DoxyEnumerate}
+
+Example code on how to use the library will be updated in the cpp file src/main.\+cc.
+
+\subsection*{How to build and run the demo}
+
+
+\begin{DoxyItemize}
+\item To build and run demo\+: Update path to dataset in main.\+cc. 
+\begin{DoxyCode}
+1 mkdir build
+2 cd build
+3 cmake ..
+4 make
+5 ./vo
+\end{DoxyCode}
+ To use these functions in your own code. Add the include directory path to the compiler debugging. Include to the start of your code and call the functions\+:
+\item To use the feature tracking and refinement library\+: 
+\begin{DoxyCode}
+1 #include "FeatTrack.hpp" 
+\end{DoxyCode}
+
+\item To use the egomotion estimation library\+: 
+\begin{DoxyCode}
+1 #include "epipolar.hpp" 
+\end{DoxyCode}
+
+\end{DoxyItemize}
+
+\subsection*{License}
+
+M\+IT License
+
+Copyright (c) 2018 Yash Manian
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the \char`\"{}\+Software\char`\"{}), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions\+:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+T\+HE S\+O\+F\+T\+W\+A\+RE IS P\+R\+O\+V\+I\+D\+ED \char`\"{}\+A\+S I\+S\char`\"{}, W\+I\+T\+H\+O\+UT W\+A\+R\+R\+A\+N\+TY OF A\+NY K\+I\+ND, E\+X\+P\+R\+E\+SS OR I\+M\+P\+L\+I\+ED, I\+N\+C\+L\+U\+D\+I\+NG B\+UT N\+OT L\+I\+M\+I\+T\+ED TO T\+HE W\+A\+R\+R\+A\+N\+T\+I\+ES OF M\+E\+R\+C\+H\+A\+N\+T\+A\+B\+I\+L\+I\+TY, F\+I\+T\+N\+E\+SS F\+OR A P\+A\+R\+T\+I\+C\+U\+L\+AR P\+U\+R\+P\+O\+SE A\+ND N\+O\+N\+I\+N\+F\+R\+I\+N\+G\+E\+M\+E\+NT. IN NO E\+V\+E\+NT S\+H\+A\+LL T\+HE A\+U\+T\+H\+O\+RS OR C\+O\+P\+Y\+R\+I\+G\+HT H\+O\+L\+D\+E\+RS BE L\+I\+A\+B\+LE F\+OR A\+NY C\+L\+A\+IM, D\+A\+M\+A\+G\+ES OR O\+T\+H\+ER L\+I\+A\+B\+I\+L\+I\+TY, W\+H\+E\+T\+H\+ER IN AN A\+C\+T\+I\+ON OF C\+O\+N\+T\+R\+A\+CT, T\+O\+RT OR O\+T\+H\+E\+R\+W\+I\+SE, A\+R\+I\+S\+I\+NG F\+R\+OM, O\+UT OF OR IN C\+O\+N\+N\+E\+C\+T\+I\+ON W\+I\+TH T\+HE S\+O\+F\+T\+W\+A\+RE OR T\+HE U\+SE OR O\+T\+H\+ER D\+E\+A\+L\+I\+N\+GS IN T\+HE S\+O\+F\+T\+W\+A\+RE. 

@@ -1,3 +1,0 @@
-/home/yashmanian/CPP/MonocularVO/build/CMakeFiles/edit_cache.dir
-/home/yashmanian/CPP/MonocularVO/build/CMakeFiles/rebuild_cache.dir
-/home/yashmanian/CPP/MonocularVO/build/CMakeFiles/vo.dir

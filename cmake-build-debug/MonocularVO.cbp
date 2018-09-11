@@ -93,16 +93,22 @@
 		<Unit filename="/home/yashmanian/CPP/MonocularVO/include/FeatTrack.hpp">
 			<Option target="vo"/>
 		</Unit>
+		<Unit filename="/home/yashmanian/CPP/MonocularVO/include/PointOps.hpp">
+			<Option target="vo"/>
+		</Unit>
 		<Unit filename="/home/yashmanian/CPP/MonocularVO/include/epipolar.hpp">
 			<Option target="vo"/>
 		</Unit>
-		<Unit filename="/home/yashmanian/CPP/MonocularVO/src/FeatTrack.cc">
+		<Unit filename="/home/yashmanian/CPP/MonocularVO/src/Tests/epiLines.cpp">
 			<Option target="vo"/>
 		</Unit>
-		<Unit filename="/home/yashmanian/CPP/MonocularVO/src/epipolar.cc">
+		<Unit filename="/home/yashmanian/CPP/MonocularVO/src/srcFiles/FeatTrack.cpp">
 			<Option target="vo"/>
 		</Unit>
-		<Unit filename="/home/yashmanian/CPP/MonocularVO/src/main.cc">
+		<Unit filename="/home/yashmanian/CPP/MonocularVO/src/srcFiles/PointOps.cpp">
+			<Option target="vo"/>
+		</Unit>
+		<Unit filename="/home/yashmanian/CPP/MonocularVO/src/srcFiles/epipolar.cpp">
 			<Option target="vo"/>
 		</Unit>
 		<Unit filename="/home/yashmanian/CPP/MonocularVO/CMakeLists.txt">

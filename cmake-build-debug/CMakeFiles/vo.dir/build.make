@@ -57,57 +57,72 @@ include CMakeFiles/vo.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/vo.dir/flags.make
 
-CMakeFiles/vo.dir/src/main.cc.o: CMakeFiles/vo.dir/flags.make
-CMakeFiles/vo.dir/src/main.cc.o: ../src/main.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yashmanian/CPP/MonocularVO/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/vo.dir/src/main.cc.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/vo.dir/src/main.cc.o -c /home/yashmanian/CPP/MonocularVO/src/main.cc
+CMakeFiles/vo.dir/src/Tests/epiLines.cpp.o: CMakeFiles/vo.dir/flags.make
+CMakeFiles/vo.dir/src/Tests/epiLines.cpp.o: ../src/Tests/epiLines.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yashmanian/CPP/MonocularVO/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/vo.dir/src/Tests/epiLines.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/vo.dir/src/Tests/epiLines.cpp.o -c /home/yashmanian/CPP/MonocularVO/src/Tests/epiLines.cpp
 
-CMakeFiles/vo.dir/src/main.cc.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/vo.dir/src/main.cc.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/yashmanian/CPP/MonocularVO/src/main.cc > CMakeFiles/vo.dir/src/main.cc.i
+CMakeFiles/vo.dir/src/Tests/epiLines.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/vo.dir/src/Tests/epiLines.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/yashmanian/CPP/MonocularVO/src/Tests/epiLines.cpp > CMakeFiles/vo.dir/src/Tests/epiLines.cpp.i
 
-CMakeFiles/vo.dir/src/main.cc.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/vo.dir/src/main.cc.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/yashmanian/CPP/MonocularVO/src/main.cc -o CMakeFiles/vo.dir/src/main.cc.s
+CMakeFiles/vo.dir/src/Tests/epiLines.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/vo.dir/src/Tests/epiLines.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/yashmanian/CPP/MonocularVO/src/Tests/epiLines.cpp -o CMakeFiles/vo.dir/src/Tests/epiLines.cpp.s
 
-CMakeFiles/vo.dir/src/FeatTrack.cc.o: CMakeFiles/vo.dir/flags.make
-CMakeFiles/vo.dir/src/FeatTrack.cc.o: ../src/FeatTrack.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yashmanian/CPP/MonocularVO/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/vo.dir/src/FeatTrack.cc.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/vo.dir/src/FeatTrack.cc.o -c /home/yashmanian/CPP/MonocularVO/src/FeatTrack.cc
+CMakeFiles/vo.dir/src/srcFiles/FeatTrack.cpp.o: CMakeFiles/vo.dir/flags.make
+CMakeFiles/vo.dir/src/srcFiles/FeatTrack.cpp.o: ../src/srcFiles/FeatTrack.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yashmanian/CPP/MonocularVO/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/vo.dir/src/srcFiles/FeatTrack.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/vo.dir/src/srcFiles/FeatTrack.cpp.o -c /home/yashmanian/CPP/MonocularVO/src/srcFiles/FeatTrack.cpp
 
-CMakeFiles/vo.dir/src/FeatTrack.cc.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/vo.dir/src/FeatTrack.cc.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/yashmanian/CPP/MonocularVO/src/FeatTrack.cc > CMakeFiles/vo.dir/src/FeatTrack.cc.i
+CMakeFiles/vo.dir/src/srcFiles/FeatTrack.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/vo.dir/src/srcFiles/FeatTrack.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/yashmanian/CPP/MonocularVO/src/srcFiles/FeatTrack.cpp > CMakeFiles/vo.dir/src/srcFiles/FeatTrack.cpp.i
 
-CMakeFiles/vo.dir/src/FeatTrack.cc.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/vo.dir/src/FeatTrack.cc.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/yashmanian/CPP/MonocularVO/src/FeatTrack.cc -o CMakeFiles/vo.dir/src/FeatTrack.cc.s
+CMakeFiles/vo.dir/src/srcFiles/FeatTrack.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/vo.dir/src/srcFiles/FeatTrack.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/yashmanian/CPP/MonocularVO/src/srcFiles/FeatTrack.cpp -o CMakeFiles/vo.dir/src/srcFiles/FeatTrack.cpp.s
 
-CMakeFiles/vo.dir/src/epipolar.cc.o: CMakeFiles/vo.dir/flags.make
-CMakeFiles/vo.dir/src/epipolar.cc.o: ../src/epipolar.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yashmanian/CPP/MonocularVO/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/vo.dir/src/epipolar.cc.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/vo.dir/src/epipolar.cc.o -c /home/yashmanian/CPP/MonocularVO/src/epipolar.cc
+CMakeFiles/vo.dir/src/srcFiles/epipolar.cpp.o: CMakeFiles/vo.dir/flags.make
+CMakeFiles/vo.dir/src/srcFiles/epipolar.cpp.o: ../src/srcFiles/epipolar.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yashmanian/CPP/MonocularVO/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/vo.dir/src/srcFiles/epipolar.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/vo.dir/src/srcFiles/epipolar.cpp.o -c /home/yashmanian/CPP/MonocularVO/src/srcFiles/epipolar.cpp
 
-CMakeFiles/vo.dir/src/epipolar.cc.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/vo.dir/src/epipolar.cc.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/yashmanian/CPP/MonocularVO/src/epipolar.cc > CMakeFiles/vo.dir/src/epipolar.cc.i
+CMakeFiles/vo.dir/src/srcFiles/epipolar.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/vo.dir/src/srcFiles/epipolar.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/yashmanian/CPP/MonocularVO/src/srcFiles/epipolar.cpp > CMakeFiles/vo.dir/src/srcFiles/epipolar.cpp.i
 
-CMakeFiles/vo.dir/src/epipolar.cc.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/vo.dir/src/epipolar.cc.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/yashmanian/CPP/MonocularVO/src/epipolar.cc -o CMakeFiles/vo.dir/src/epipolar.cc.s
+CMakeFiles/vo.dir/src/srcFiles/epipolar.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/vo.dir/src/srcFiles/epipolar.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/yashmanian/CPP/MonocularVO/src/srcFiles/epipolar.cpp -o CMakeFiles/vo.dir/src/srcFiles/epipolar.cpp.s
+
+CMakeFiles/vo.dir/src/srcFiles/PointOps.cpp.o: CMakeFiles/vo.dir/flags.make
+CMakeFiles/vo.dir/src/srcFiles/PointOps.cpp.o: ../src/srcFiles/PointOps.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yashmanian/CPP/MonocularVO/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/vo.dir/src/srcFiles/PointOps.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/vo.dir/src/srcFiles/PointOps.cpp.o -c /home/yashmanian/CPP/MonocularVO/src/srcFiles/PointOps.cpp
+
+CMakeFiles/vo.dir/src/srcFiles/PointOps.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/vo.dir/src/srcFiles/PointOps.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/yashmanian/CPP/MonocularVO/src/srcFiles/PointOps.cpp > CMakeFiles/vo.dir/src/srcFiles/PointOps.cpp.i
+
+CMakeFiles/vo.dir/src/srcFiles/PointOps.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/vo.dir/src/srcFiles/PointOps.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/yashmanian/CPP/MonocularVO/src/srcFiles/PointOps.cpp -o CMakeFiles/vo.dir/src/srcFiles/PointOps.cpp.s
 
 # Object files for target vo
 vo_OBJECTS = \
-"CMakeFiles/vo.dir/src/main.cc.o" \
-"CMakeFiles/vo.dir/src/FeatTrack.cc.o" \
-"CMakeFiles/vo.dir/src/epipolar.cc.o"
+"CMakeFiles/vo.dir/src/Tests/epiLines.cpp.o" \
+"CMakeFiles/vo.dir/src/srcFiles/FeatTrack.cpp.o" \
+"CMakeFiles/vo.dir/src/srcFiles/epipolar.cpp.o" \
+"CMakeFiles/vo.dir/src/srcFiles/PointOps.cpp.o"
 
 # External object files for target vo
 vo_EXTERNAL_OBJECTS =
 
-vo: CMakeFiles/vo.dir/src/main.cc.o
-vo: CMakeFiles/vo.dir/src/FeatTrack.cc.o
-vo: CMakeFiles/vo.dir/src/epipolar.cc.o
+vo: CMakeFiles/vo.dir/src/Tests/epiLines.cpp.o
+vo: CMakeFiles/vo.dir/src/srcFiles/FeatTrack.cpp.o
+vo: CMakeFiles/vo.dir/src/srcFiles/epipolar.cpp.o
+vo: CMakeFiles/vo.dir/src/srcFiles/PointOps.cpp.o
 vo: CMakeFiles/vo.dir/build.make
 vo: /usr/local/lib/libopencv_dnn.so.3.4.1
 vo: /usr/local/lib/libopencv_objdetect.so.3.4.1
@@ -127,7 +142,7 @@ vo: /usr/local/lib/libopencv_imgcodecs.so.3.4.1
 vo: /usr/local/lib/libopencv_imgproc.so.3.4.1
 vo: /usr/local/lib/libopencv_core.so.3.4.1
 vo: CMakeFiles/vo.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/yashmanian/CPP/MonocularVO/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable vo"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/yashmanian/CPP/MonocularVO/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable vo"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/vo.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
