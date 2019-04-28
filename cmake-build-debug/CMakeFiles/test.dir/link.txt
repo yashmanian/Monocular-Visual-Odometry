@@ -1,1 +1,0 @@
-/usr/bin/c++   -std=c++11 -g   CMakeFiles/test.dir/src/Tests/epiLines.cpp.o CMakeFiles/test.dir/src/FeatTrack.cpp.o CMakeFiles/test.dir/src/epipolar.cpp.o  -o test 

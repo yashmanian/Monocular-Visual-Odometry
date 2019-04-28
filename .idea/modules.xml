@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/MonocularVO.iml" filepath="$PROJECT_DIR$/.idea/MonocularVO.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/Monocular-Visual-Odometry.iml" filepath="$PROJECT_DIR$/.idea/Monocular-Visual-Odometry.iml" />
     </modules>
   </component>
 </project>
