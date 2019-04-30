@@ -7,7 +7,10 @@ project(MonocularVO)
 find_package( OpenCV REQUIRED )
 find_package( Eigen3 REQUIRED NO_MODULE )
 
+set(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin)
 include_directories(include)
+
+file(MAKE_DIRECTORY "bin")
 
 add_executable(vo src/Tests/epiLines.cpp src/srcFiles/FeatTrack.cpp src/srcFiles/epipolar.cpp src/srcFiles/PointOps.cpp include/FeatTrack.hpp include/epipolar.hpp include/PointOps.hpp)
 

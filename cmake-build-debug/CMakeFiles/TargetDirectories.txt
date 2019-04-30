@@ -1,3 +1,0 @@
-/home/yashmanian/git/Monocular-Visual-Odometry/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/home/yashmanian/git/Monocular-Visual-Odometry/cmake-build-debug/CMakeFiles/vo.dir
-/home/yashmanian/git/Monocular-Visual-Odometry/cmake-build-debug/CMakeFiles/edit_cache.dir
