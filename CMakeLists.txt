@@ -12,6 +12,10 @@ include_directories(include)
 
 file(MAKE_DIRECTORY "bin")
 
-add_executable(vo src/Tests/epiLines.cpp src/srcFiles/FeatTrack.cpp src/srcFiles/epipolar.cpp src/srcFiles/PointOps.cpp include/FeatTrack.hpp include/epipolar.hpp include/PointOps.hpp)
+file(GLOB PROJECT_INC "include/*.h"
+                      "include/*.hpp")
+file(GLOB PROJECT_SRC "src/srcFiles/*.cpp")
+
+add_executable(vo src/Tests/epiLines.cpp ${PROJECT_SRC})
 
 target_link_libraries( vo ${OpenCV_LIBS} Eigen3::Eigen)
