@@ -17,5 +17,8 @@ file(GLOB PROJECT_INC "include/*.h"
 file(GLOB PROJECT_SRC "src/srcFiles/*.cpp")
 
 add_executable(vo src/Tests/epiLines.cpp ${PROJECT_SRC})
+add_executable(opTest src/Tests/OpTest.cpp ${PROJECT_SRC})
+
 
 target_link_libraries( vo ${OpenCV_LIBS} Eigen3::Eigen)
+target_link_libraries( opTest ${OpenCV_LIBS} Eigen3::Eigen)
